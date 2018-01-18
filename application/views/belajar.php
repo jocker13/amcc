@@ -1,3 +1,4 @@
+
 <div class="row">
       <div class="col-lg-12">
       </br>
@@ -45,10 +46,12 @@
                    </div>
                 </form> 
   </div>
+  <div class="colum">
+  <div class="panel panel-default">
   <div class="col-md-8">
-  	<table class="table table-bordered table-striped">
+  	<table class="table table-hover">
                     <thead>
-                      <tr style="background: darkorange;">
+                      <tr>
                         <th>NIM</th>
                         <th>NAMA</th>
                         <th>JABATAN</th>
