@@ -21,24 +21,7 @@ if ($op=='edit')
       }
     }
  ?>
-<script>
-// Custom JavaScript for Validation
-(function() {
-  "use strict";
-  window.addEventListener("load", function() {
-    var form = document.getElementById("form-validation");
-    form.addEventListener("submit", function(event) {
-      if (form.checkValidity() == false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add("was-validated");
-    }, false);
-  }, false);
-}());
-</script>
 
-</script>
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header"></h1>
@@ -46,20 +29,20 @@ if ($op=='edit')
 </div><!--/.row-->
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">Input Data Pengguna</div>
       <div class="panel-body">
-        <form role="form" id="form-validation" action="<?php echo base_url(); ?>User/simpan" method="POST" >
+        <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
           <div class="form-group">
             <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
             <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
             <label>NIM</label>
-            <input type="text" name="nim" id ="nim" value="<?php echo $nim ?>" class="form-control" required>
+            <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control">
           </div>
           <div class="form-group">
             <label>NAMA</label>
-            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" required>
+            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control">
           </div>
           <div class="form-group">
             <label>Jabatan</label>
@@ -71,31 +54,31 @@ if ($op=='edit')
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email ?>" class="form-control"   required>
+            <input type="text" name="email" value="<?php echo $email ?>" class="form-control">
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control" required >
+            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control">
           </div>
           <div class="form-group">
             <label>NO Telp</label>
             <input type="text" name="notelp"  value="<?php echo $no_telp ?>" class="form-control">
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
         </form> 
         <div class="clear"></div>
       </div><!--End .article-->
     </div>
   </div><!--End .articles-->
-  <div class="row">
-    <div class="col-md-7">
+
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">Daftar Pengguna</div>
-        <div class="panel-body">
+          <div class="panel-body">
 
-          <table class="table table-hover">
+            <table class="table table-hover">
             <thead>
               <tr>
                 <th>NIM</th>
@@ -103,7 +86,7 @@ if ($op=='edit')
                 <th>JABATAN</th>
                 <th>EMAIL</th>
                 <th>NO. TEL</th>
-                <!-- <th>PASSWORD</th> -->
+        
                 <th>AKSI</th>
 
               </tr>
@@ -120,10 +103,10 @@ if ($op=='edit')
                   <td><?php echo $user->jabatan ?> </td>
                   <td><?php echo $user->email ?> </td>
                   <td><?php echo $user->no_telp ?> </td>
-                  <!-- <td><?php echo $user->password ?> </td> -->
+               
                   <td>
-                    <a href="<?php echo base_url();?>User/edit/<?php echo $user->id ?>" class="btn btn-info btn-xs ">edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id ?>';}" class="btn btn-danger btn-xs">hapus</button> </td>
+                    <a href="<?php echo base_url();?>User/edit/<?php echo $user->id ?>" class="btn btn-sm btn-warning ">edit</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id ?>';}" class="btn btn-sm btn-danger">hapus</button> </td>
                 </tr>
               </tbody>
               <?php
@@ -132,3 +115,4 @@ if ($op=='edit')
             ?>
           </table>
         </div>
+      </div>

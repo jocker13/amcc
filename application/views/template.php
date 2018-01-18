@@ -96,14 +96,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
+		
 		<ul class="nav menu">
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Users</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Estimasi</a></li>
+			<li><a href="index.html"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Users</a></li>   
+			<li><a href="index.html"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
+			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>

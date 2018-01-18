@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -50,7 +50,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -95,7 +95,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -147,7 +147,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -191,7 +191,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -235,7 +235,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -279,7 +279,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -322,7 +322,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><a href="#" class="btn btn-primary" data-target="#dialog-barang" data-toggle="modal">Tambah</a>
+					<div class="panel-heading"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 					</div>
 					
 					<div class="panel-body">
@@ -364,6 +364,55 @@
 				</div>
         	</div>
         </div> <!--End .TABEL-->
+
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Input Data Estimasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        	 <div class="form-group">
+	            <label>Nama Sie</label>
+	            <select class="form-control" name="namasie">
+	              <option>Sumber Dana</option>
+	              <option>Sekretaris</option>
+	              <option>Konsumsi</option>
+	              <option>Publikasi dan Dokumentasi</option>
+	              <option>Perlengkapan</option>
+	              <option>Acara</option>
+            	</select>
+          </div>
+          <div class="form-group">
+            <label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="banyak-name" class="form-control-label">Banyak</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="r-name" class="form-control-label">Harga Satuan</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
