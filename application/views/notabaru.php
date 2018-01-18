@@ -13,42 +13,42 @@
   	 <form>
                     <div class="form-group">
                               <label>No.Nota</label>
-                              <input type="text" name="no" class="form-control">
+                              <input type="text" name="no" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>TANGGAL</label>
-                              <input type="text" name="tgl" class="form-control">
+                              <input type="date" name="tgl" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>DITERIMA DARI</label>
-                              <input type="text" name="dari" class="form-control">
+                              <input type="text" name="dari" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>UANG SEBESAR</label>
-                              <input type="text" name="uang" class="form-control">
+                              <input type="text" name="uang" class="form-control" required> 
                     </div>
-     </form>
+    
   </div>
   <div class="col-md-6">
-  	<form>
+  	
                     <div class="form-group">
                               <label>TERBILANG</label>
-                              <input type="text" name="terbilang" class="form-control">
+                              <input type="text" name="terbilang" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>PENERIMA</label>
-                              <input type="text" name="penerima" class="form-control">
+                              <input type="text" name="penerima" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>Nomor HP</label>
-                              <input type="text" name="hp" class="form-control">
+                              <input type="text" name="hp" class="form-control" required>
                     </div>
                     <div class="form-group">
                               <label>KETERANGAN</label>
-                              <input type="text" name="KET" class="form-control">
+                              <input type="text" name="KET" class="form-control" required>
                     </div>
                      <br>
-                   <div class="form-group">
+                   <div align="right" class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
                    </div>
      </form>

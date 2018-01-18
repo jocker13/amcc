@@ -38,11 +38,11 @@ if ($op=='edit')
             <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
             <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
             <label>NIM</label>
-            <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control">
+            <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control" required>
           </div>
           <div class="form-group">
             <label>NAMA</label>
-            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control">
+            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Jabatan</label>
@@ -54,11 +54,11 @@ if ($op=='edit')
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="text" name="email" value="<?php echo $email ?>" class="form-control">
+            <input type="email" name="email" value="<?php echo $email ?>" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control">
+            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control" required>
           </div>
           <div class="form-group">
             <label>NO Telp</label>

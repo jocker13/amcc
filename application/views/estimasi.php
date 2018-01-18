@@ -394,21 +394,22 @@
           </div>
           <div class="form-group">
             <label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" required>
           </div>
           <div class="form-group">
             <label for="banyak-name" class="form-control-label">Banyak</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" required>
           </div>
           <div class="form-group">
             <label for="r-name" class="form-control-label">Harga Satuan</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" required>
           </div>
-        </form>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
