@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
-          <div class="panel-heading">Input Data Nota</div>
+          <div class="panel-heading">INPUT DATA NOTA</div>
           <div class="panel-body">
                 <form>
                     <div class="form-group">
@@ -27,8 +27,8 @@
                         <input type="file" name="fileToUpload" id="fileToUpload">  
                     </form>
                     </br>
-                   <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                   <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                    </div>
                 </form> 
 

@@ -49,14 +49,14 @@
                     </div>
                      <br>
                    <div align="right" class="form-group">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                    </div>
      </form>
   </div>
 </div> 
 </div> 
-
 </div><!--/.row-->
+
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
@@ -64,9 +64,9 @@
           <div class="panel-body">
 <div class="row">
   <div class="col-lg-12">
-  	 <table class="table table-bordered table-striped">
+  	 <table class="table table-hover">
   	 	<thead>
-  	 		<tr style="background: darkorange; text-align: center;">
+  	 		<tr style="text-align: center;">
   	 			<th style="text-align: center">NO.NOTA</th>
   	 			<th style="text-align: center">TANGGAL</th>
   	 			<th style="text-align: center">DITERIMA DARI</th>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Belajar extends CI_Controller {
+class Kegiatan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +21,7 @@ class Belajar extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			"container" => "belajar"
+			"container" => "kegiatan"
 		);
 		
 		$this->load->view("template", $data);

@@ -29,54 +29,62 @@ if ($op=='edit')
 </div><!--/.row-->
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-lg-12">
     <div class="panel panel-default">
-      <div class="panel-heading">Input Data Pengguna</div>
+      <div class="panel-heading">INPUT DATA PENGGUNA</div>
       <div class="panel-body">
-        <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
-          <div class="form-group">
-            <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-            <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
-            <label>NIM</label>
-            <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>NAMA</label>
-            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Jabatan</label>
-            <select class="form-control" name="jabatan">
-              <option>Admin</option>
-              <option>Ketua</option>
-              <option>Users</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email ?>" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>NO Telp</label>
-            <input type="text" name="notelp"  value="<?php echo $no_telp ?>" class="form-control">
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-          </div>
-        </form> 
-        <div class="clear"></div>
+   <div class="row">
+       <div class="col-md-6">
+
+          <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
+                          <div class="form-group">
+                            <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
+                            <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+                            <label>NIM</label>
+                            <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control" required>
+                          </div>
+                          <div class="form-group">
+                            <label>NAMA</label>
+                            <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" required>
+                          </div>
+                          <div class="form-group">
+                            <label>Jabatan</label>
+                            <select class="form-control" name="jabatan">
+                              <option>Admin</option>
+                              <option>Ketua</option>
+                              <option>Users</option>
+                            </select>
+                          </div>
+        </div>
+        <div class="col-md-6">     
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" value="<?php echo $email ?>" class="form-control" required>
+                          </div>
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" value="<?php echo $password ?>"  class="form-control" required>
+                          </div>
+                          <div class="form-group">
+                            <label>Nomor Telp</label>
+                            <input type="text" name="notelp"  value="<?php echo $no_telp ?>" class="form-control">
+                          </div>
+                          <div class="form-group" align="right">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                          </div>
+      </form>
       </div><!--End .article-->
     </div>
-  </div><!--End .articles-->
+  </div>
+</div>
 
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">Daftar Pengguna</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+          <div class="panel-heading">DAFTAR NOTA BARU</div>
           <div class="panel-body">
+<div class="row">
+  <div class="col-lg-12">
 
             <table class="table table-hover">
             <thead>

@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="divider"></div>
 		
 		<ul class="nav menu">
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Users</a></li>   
+			<li><a href="index.html"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
 			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>

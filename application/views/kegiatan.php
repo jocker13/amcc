@@ -23,13 +23,8 @@
                         <label>TANGGAL</label>
                         <input type="text" name="tanggal" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>KETERANGAN</label>
-                        <input type="text" name="keterangan" class="form-control">
-                    </div>
-                      
-                   <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                   <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                    </div>
                 </form> 
 
@@ -51,7 +46,6 @@
                         <th style="text-align: center;">TAHUN KEPENGURUSAN</th>
                         <th style="text-align: center;">NAMA KEGIATAN</th>
                         <th style="text-align: center;">TANGGAL</th>
-                        <th style="text-align: center;">KETERANGAN</th>
                         <th style="text-align: center;">AKSI</th>
                       </tr>
                     </thead>
@@ -61,7 +55,6 @@
                         <td>2016/2017</td>
                         <td>SHARING SESSION DIVISI</td>
                         <td>01 FEBRUARI 2018</td>
-                        <td>DISETUJUI</td>
                         <td></td>
                       </tr>
                        <tr>
@@ -69,14 +62,12 @@
                         <td>2016/2017</td>
                         <td>TEKNOLOGI MASYARAKAT 2018</td>
                         <td>01 FEBRUARI 2018</td>
-                        <td>DISETUJUI</td>
                         <td></td>
                       </tr>
            
                         <td>2016/2017</td>
                         <td>SEMINAR NASIONAL</td>
                         <td>01 FEBRUARI 2018</td>
-                        <td>DISETUJUI</td>
                         <td></td>
                       </tr>
                      </tbody>
