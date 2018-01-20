@@ -384,14 +384,14 @@
         	 <div class="form-group">
 	            <label>Nama Sie</label>
 	            <select class="form-control" name="namasie">
-	              <option>Sumber Dana</option>
-	              <option>Sekretaris</option>
-	              <option>Konsumsi</option>
-	              <option>Publikasi dan Dokumentasi</option>
-	              <option>Perlengkapan</option>
-	              <option>Acara</option>
-	              <option>Humas</option>
-	              <option>Kesekretariatan</option>
+	              <option>SUMBER DANA</option>
+	              <option>SEKRETARIS</option>
+	              <option>KONSUMSI</option>
+	              <option>PDD</option>
+	              <option>PERLENGKAPAN</option>
+	              <option>ACARA</option>
+	              <option>HUMAS</option>
+	              <option>KESEKRETARIATAN</option>
             	</select>
           </div>
           <div class="form-group">

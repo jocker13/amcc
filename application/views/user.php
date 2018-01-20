@@ -89,13 +89,13 @@ if ($op=='edit')
             <table class="table table-hover">
             <thead>
               <tr>
-                <th>NIM</th>
-                <th>NAMA</th>
-                <th>JABATAN</th>
-                <th>EMAIL</th>
-                <th>NO. TEL</th>
+                <th style="background: dodgerblue; text-align: center;">NIM</th>
+                <th style="background: dodgerblue; text-align: center;">NAMA</th>
+                <th style="background: dodgerblue; text-align: center;">JABATAN</th>
+                <th style="background: dodgerblue; text-align: center;">EMAIL</th>
+                <th style="background: dodgerblue; text-align: center;">NO. TEL</th>
         
-                <th>AKSI</th>
+                <th style="background: dodgerblue; text-align: center;">AKSI</th>
 
               </tr>
             </thead>
@@ -113,8 +113,8 @@ if ($op=='edit')
                   <td><?php echo $user->no_telp ?> </td>
                
                   <td>
-                    <a href="<?php echo base_url();?>User/edit/<?php echo $user->id ?>" class="btn btn-sm btn-warning ">edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id ?>';}" class="btn btn-sm btn-danger">hapus</button> </td>
+                    <a href="<?php echo base_url();?>User/edit/<?php echo $user->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id ?>';}" class="btn btn-sm btn-danger">Hapus</button> </td>
                 </tr>
               </tbody>
               <?php
