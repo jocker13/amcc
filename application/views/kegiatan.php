@@ -43,7 +43,7 @@ if ($op=='edit')
                     </div> 
                     <div class="form-group">
                         <label>TANGGAL</label>
-                        <input type="text" name="tanggal" value="<?php echo $tanggal ?>" class="form-control">
+                        <input type="date" name="tanggal" value="<?php echo $tanggal ?>" class="form-control">
                     </div>
                    <div class="form-group" align="right">
                         <button type="submit" class="btn btn-primary">Simpan</button>

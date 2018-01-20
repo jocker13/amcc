@@ -6,7 +6,7 @@ class nota_model extends CI_Model {
 
 	public function getnota()
 	{
-		$sql =$this->db->query("select * from nota");
+		$sql =$this->db->query("select n.*, k.nama_kegiatan as nama_kegiatan from nota n join kegiatan k on n.id_kegiatan = k.id");
 		return $sql;
 	}
 	public function save($data)

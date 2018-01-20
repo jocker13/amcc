@@ -6,6 +6,7 @@ class Nota extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("nota_model");
+		$this->load->model("kegiatan_model");
 		$this->load->helper('url');
 	}
 
@@ -16,6 +17,7 @@ class Nota extends CI_Controller {
 		);
 		$data['op']='tambah';
 		$data['sql']=$this->nota_model->getnota()->result();
+		$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();
 		$this->load->view("template", $data);
 	}
 	public function simpan()
@@ -23,11 +25,11 @@ class Nota extends CI_Controller {
 		$no_nota=$this->input->post("no_nota");
 		$id=$this->input->post("id");
 		$op=$this->input->post("op");
-		$nama_kegiatan=$this->input->post("nama_kegiatan");
+		$id_kegiatan=$this->input->post("id_kegiatan");
 		$gambar=$this->input->post("gambar");
 		$data = array(
 			'no_nota' => $no_nota , 
-			'nama_kegiatan' => $nama_kegiatan, 
+			'id_kegiatan' => $id_kegiatan, 
 			'gambar' => $gambar
 		);
 		// echo $op;

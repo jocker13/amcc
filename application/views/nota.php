@@ -37,12 +37,35 @@ if ($op=='edit')
                     </div>
                     <div class="form-group">
                           <label>NAMA KEGIATAN</label>
-                           <input type="text" name="nama_kegiatan" value="<?php echo $nama_kegiatan ?>" class="form-control">
+
+                           <select class="form-control" name="nama_kegiatan">
+                            <?php 
+                              foreach ($kegiatan as $nama) {
+                                
+                              ?>
+                              <option><?php echo $nama->nama_kegiatan; ?></option>
+                              <input type="hidden" name="id_kegiatan" value="<?php echo $nama->id ?>">
+                              <?php 
+
+                              }
+                             ?>
+                            </select>
                     </div>
                   </br>
-                   <form action="upload.php" method="post" enctype="multipart/form-data">
-                        <input type="file" name="gambar" id="gambar" value="<?php echo $gambar ?>">  
-                    </form>
+                   
+                          <div class="form-group">
+                              <label>Gambar Nata</label>
+                              <div class="input-group">
+                                  <span class="input-group-btn">
+                                      <span class="btn btn-default btn-file">
+                                          Browse… <input type="file" id="imgInp" value="">
+                                      </span>
+                                  </span>
+                                  <input type="text" class="form-control" readonly>
+                              </div>
+                              <img id='img-upload'/>
+                          </div>
+                      
                     </br>
                    <div class="form-group" align="right">
                         <button type="submit" class="btn btn-primary">Simpan</button>

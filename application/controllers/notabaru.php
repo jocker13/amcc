@@ -36,7 +36,8 @@ class NotaBaru extends CI_Controller {
 			'dari' => $dari, 
 			'uang' => $uang, 
 			'terbilang' => $terbilang, 
-			'no_telp' => $notelp,
+			'penerima' => $penerima, 
+			'no_telp' => $no_telp,
 			'keterangan' => $keterangan
 		);
 		// echo $op;
