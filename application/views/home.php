@@ -1,1 +1,1 @@
-ini halaman home
+<img src="<?php  echo base_url('assets/img/amcc1.png');?>">

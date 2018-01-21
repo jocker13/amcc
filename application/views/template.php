@@ -12,6 +12,7 @@ $email = ($this->session->userdata['logged_in']['email']);
 }
 ?>
 <head>
+	<link rel="icon" href="<?=base_url('assets/img/amcc.png');?>" type="image/gif">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AMCC - Dashboard</title>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AMCC - Login</title>
+<link rel="icon" href="<?=base_url('assets/img/amcc.png');?>" type="image/gif">
 <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
 <link href="<?php echo base_url('assets/css/datepicker3.css')?>" rel="stylesheet">
 <link href="<?php echo base_url('assets/css/styles.css')?>" rel="stylesheet">
@@ -15,10 +16,10 @@ if (isset($this->session->userdata['logged_in'])) {
 ?>
 <head>
 	<title>Login Form</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body  >
 	
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
