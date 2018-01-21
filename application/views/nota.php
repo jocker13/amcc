@@ -38,17 +38,18 @@ if ($op=='edit')
                     <div class="form-group">
                           <label>NAMA KEGIATAN</label>
 
-                           <select class="form-control" name="nama_kegiatan">
+                           <select class="form-control" name="id_kegiatan" >
                             <?php 
                               foreach ($kegiatan as $nama) {
                                 
                               ?>
-                              <option><?php echo $nama->nama_kegiatan; ?></option>
-                              <input type="hidden" name="id_kegiatan" value="<?php echo $nama->id ?>">
+                              <option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?></option>
+                             
                               <?php 
 
                               }
                              ?>
+                              <!-- <input type="hidden" name="id_kegiatan" value="<?php echo $nama->id ?>"> -->
                             </select>
                     </div>
                   </br>
