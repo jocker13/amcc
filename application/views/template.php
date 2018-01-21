@@ -2,6 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html>
+<?php
+if (isset($this->session->userdata['logged_in'])) {
+$NIM = ($this->session->userdata['logged_in']['NIM']);
+$nama = ($this->session->userdata['logged_in']['nama']);
+$email = ($this->session->userdata['logged_in']['email']);
+} else {
+// header("location: login");
+}
+?>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,22 +99,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<img src="<?php echo base_url('assets/img/aa.png') ?>" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Username</div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+				<div class="profile-usertitle-name"><?php echo $nama;  ?></div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span><?php echo $NIM;  ?></div>
 			</div>
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
 		
 		<ul class="nav menu">
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
-			<li><a href="index.html"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li>
+			<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
+			<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
+			<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
+			<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
+			<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
+			<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
+			<li><a href="<?php echo base_url('/nota') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
+			<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li>
 			<!-- <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
@@ -125,7 +134,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a></li> -->
 				<!-- </ul>
 			</li>  -->
-			<li><a href="login.html"><img src="<?php echo base_url('assets/img/cancel.png') ?>" >&nbsp; Logout</a></li>
+			<li><a href="logout"><img src="<?php echo base_url('assets/img/cancel.png') ?>" >Logout</a></li>
+			<!-- <li><a href="login.html">&nbsp; Logout</a></li> -->
 		</ul>
 	</div><!--/.sidebar-->
 
