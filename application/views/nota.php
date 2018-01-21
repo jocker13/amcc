@@ -55,7 +55,7 @@ if ($op=='edit')
                   </br>
                    
                           <div class="form-group">
-                              <label>Gambar Nata</label>
+                              <label>Gambar Nota</label>
                               <div class="input-group">
                                   <span class="input-group-btn">
                                       <span class="btn btn-default btn-file">
@@ -86,7 +86,7 @@ if ($op=='edit')
             <div class="panel-body">
                   <table class="table table-bordered table-striped">
                     <thead>
-                      <tr style="background: deepskyblue;">
+                      <tr style="background: dodgerblue;">
                         <th style="text-align: center;">No. Nota</th>
                         <th style="text-align: center;">NAMA KEGIATAN</th>
                         <th style="text-align: center;">FILE</th>
@@ -105,6 +105,7 @@ if ($op=='edit')
                         <td><?php echo $nota->gambar  ?></td>
                         <td>
                            <a href="<?php echo base_url();?>nota/edit/<?php echo $nota->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+
                            <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>nota/hapus/<?php echo $nota->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
                         </td>
                       </tr>

@@ -1,3 +1,26 @@
+<?php 
+    $op;
+    $id = "";
+    $nama_transaksi ="";
+    $Tanggal = "";
+    $jenis = "";
+    $Jumlah = "";
+    $SALDO = "";
+    $no_telp = "";
+if ($op=='edit')
+ {
+    foreach ($sql as $val) {
+      $op = "edit";
+      $id = $val->id;
+      $nim = $val->NIM;
+      $nama = $val->nama;
+      $jabatan = $val->jabatan;
+      $email = $val->email;
+      $password = $val->password;
+      $no_telp = $val->no_telp;
+      }
+    }
+ ?>
 
 <div class="row">
       <div class="col-lg-12">
