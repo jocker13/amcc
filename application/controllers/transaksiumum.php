@@ -19,14 +19,24 @@ class TransaksiUmum extends CI_Controller {
 		$this->load->view("template", $data);
 	}
 	public function simpan()
-	{
+	{	
+		$da=$this->transaksiumum_model->getSaldoakhir();
+
+		// echo($da);
+		// exit();
+		if ($this->input->post("jenis")=="Pemasukan") {
+			$saldo1 =$da+$this->input->post("jumlah");
+		}
+		else{
+			$saldo1 =$da-$this->input->post("jumlah");
+		} 
 		$nama_transaksi=$this->input->post("nama_transaksi");
 		$id=$this->input->post("id");
 		$op=$this->input->post("op");
 		$tanggal=$this->input->post("tanggal");
 		$jenis=$this->input->post("jenis");
 		$jumlah=$this->input->post("jumlah");
-		$saldo=$this->input->post("saldo");
+		$saldo=$saldo1;
 		$data = array(
 			'nama_transaksi' => $nama_transaksi , 
 			'tanggal' => $tanggal,

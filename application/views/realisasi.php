@@ -67,7 +67,16 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading" align="right"><a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
+			<form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="nama transaksi" name="srch-term" id="srch-term">
+              <div class="input-group-btn">
+                <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
+                </button>
+              </div>
+            </div>
+          </form>
+			<div class="panel-heading" align="right"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
 			</div>
 
 			<div class="panel-body">

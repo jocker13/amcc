@@ -9,6 +9,12 @@ class transaksiumum_model extends CI_Model {
 		$sql =$this->db->query("select * from transaksiumum");
 		return $sql;
 	}
+	public function getSaldoakhir()
+	{
+		$sql =$this->db->query("select saldo from transaksiumum where id=(select max(id)from transaksiumum)");
+		$ret = $sql->row();
+		return $ret->saldo;
+	}
 	public function save($data)
 	{
 		$this->db->insert('transaksiumum',$data);

@@ -114,8 +114,44 @@ if (isset($this->session->userdata['logged_in'])) {
 					<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
 					<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
 					<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
+					<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+						<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+					</a>
+					<ul class="children collapse" id="sub-item-1">
+						<li><a class="" href="<?php echo base_url('/nota') ?>">
+							<span class="fa fa-arrow-right">&nbsp;</span> Nota Kegiatan
+						</a></li>
+						<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
+							<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
+						</a></li>
+					</ul>
+				<!-- </li>
 					<li><a href="<?php echo base_url('/nota') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
-					<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li>
+					<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li> -->
+					<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+						<em class="fa fa-navicon">&nbsp;</em> Laporan <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+					</a>
+					<ul class="children collapse" id="sub-item-1">
+						<li><a class="" href="#">
+							<span class="fa fa-arrow-right">&nbsp;</span>  Estimasi
+						</a></li>
+						<li><a class="" href="#">
+							<span class="fa fa-arrow-right">&nbsp;</span> Realisasi
+						</a></li>
+						<li><a class="" href="#">
+							<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
+						</a></li>
+						</a></li>
+						<li><a class="" href="#">
+							<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
+						</a></li>
+						</a></li>
+						<li><a class="" href="#">
+							<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
+						</a></li>
+					</ul>
+				</li>
+
 			<!-- <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>

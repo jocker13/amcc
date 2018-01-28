@@ -12,10 +12,10 @@ if ($op=='edit')
       $op = "edit";
       $id = $val->id;
       $nama_transaksi = $val->nama_transaksi;
-      $Tanggal = $val->Tanggal;
+      $tanggal = $val->tanggal;
       $jenis = $val->jenis;
-      $Jumlah = $val->Jumlah;
-      $SALDO = $val->SALDO;
+      $Jumlah = $val->jumlah;
+      $SALDO = $val->saldo;
       }
     }
  ?>
@@ -39,27 +39,34 @@ if ($op=='edit')
 			        <th style="background: dodgerblue; text-align: center;">JENIS</th>
 			        <th style="background: dodgerblue; text-align: center;">JUMLAH</th>
 			        <th style="background: dodgerblue; text-align: center;">SALDO</th>
-			        <th style="background: dodgerblue; text-align: center;">AKSI</th>
+			        <!-- <th style="background: dodgerblue; text-align: center;">AKSI</th> -->
 			      </tr>
 			    </thead>
-			    <tbody>
-			      <tr>
-			        <td>Sisa Dana 16/17</td>
-			        <td>01/2/2018</td>
-			        <td>Pemasukan</td>
-			        <td>500000000</td>
-			        <td></td>
-			        <td></td>
-			      </tr>
-			      <tr>
-			        <td>Fotocopy</td>
-			        <td>11/2/2018</td>
-			        <td>Pengeluaran</td>
-			        <td>50000</td>
-			        <td></td>
-			        <td></td>
-			      </tr>			    
-			     </tbody>
+			    <?php
+            $no=0;
+            foreach ($sql as $tran) {
+              $no++;
+              ?>
+              <tbody>
+                <tr>
+                  <?php 
+                  $newDate = date("d-m-Y", strtotime($tran->tanggal))
+                  ?>
+                  <td><?php echo $tran->nama_transaksi  ?></td>
+                  <td><?php echo $newDate  ?></td>
+                  <td><?php echo $tran->jenis  ?></td>
+                  <td><?php echo $tran->jumlah  ?></td>
+                  <td><?php echo $tran->saldo  ?></td>
+                  <!-- <td> -->
+                   <!--  <a href="<?php echo base_url();?>TransaksiUmum/edit/<?php echo $tran->id ?>" class="btn btn-sm btn-warning ">Edit</a> -->
+                   <!--  <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>TransaksiUmum/hapus/<?php echo $tran->id ?>';}" class="btn btn-sm btn-danger">Hapus</button></a>  -->
+                  <!-- </td> -->
+                </tr>
+              </tbody>
+              <?php
+
+            }
+            ?>
 			  </table>
 			</div>
 		</div>
@@ -77,7 +84,7 @@ if ($op=='edit')
         </button>
       </div>
       <div class="modal-body">
-        <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
+        <form role="form"  action="<?php echo base_url(); ?>TransaksiUmum/simpan" method="POST">
 
 		          <div class="form-group">
 		          	 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
@@ -88,7 +95,7 @@ if ($op=='edit')
 		          </div>
 		          <div class="form-group">
 		              <label>Tanggal</label>
-		              <input type="date" name="tgl" class="form-control" required>
+		              <input type="date" name="tanggal" class="form-control" required>
 		          </div>
 		          <div class="form-group">
 			            <label>Jenis</label>
@@ -99,7 +106,7 @@ if ($op=='edit')
 		          </div>
 		          <div class="form-group">
 		            <label for="r-name" class="form-control-label">Jumlah</label>
-		            <input type="text" class="form-control" id="recipient-name" required>
+		            <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?php echo $Jumlah ?>" required>
 		          </div>
 		        
 		      </div>

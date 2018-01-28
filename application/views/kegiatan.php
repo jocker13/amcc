@@ -35,7 +35,7 @@ if ($op=='edit')
             <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
             <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
             <label>TAHUN KEPENGURUSAN</label>
-            <input type="text" name="tahun_kep" value="<?php echo $tahun_kep ?>" class="form-control">
+            <input type="text" name="tahun_kep" value="<?php echo $tahun_kep ?>" class="form-control" placeholder="2016/2017">
           </div>
           <div class="form-group">
             <label>NAMA KEGIATAN</label>
@@ -61,6 +61,17 @@ if ($op=='edit')
       <div class="panel panel-default">
         <div class="panel-heading">Daftar Kegiatan</div>
         <div class="panel-body">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="nama kegiatan" name="srch-term" id="srch-term">
+              <div class="input-group-btn">
+                <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+        
           <table class="table table-bordered table-striped">
             <thead>
               <tr style="background: dodgerblue;">
