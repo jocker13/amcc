@@ -2,22 +2,20 @@
     $op;
     $id = "";
     $nama_transaksi ="";
-    $Tanggal = "";
+    $tanggal = "";
     $jenis = "";
     $Jumlah = "";
     $SALDO = "";
-    $no_telp = "";
 if ($op=='edit')
  {
     foreach ($sql as $val) {
       $op = "edit";
       $id = $val->id;
-      $nim = $val->NIM;
-      $nama = $val->nama;
-      $jabatan = $val->jabatan;
-      $email = $val->email;
-      $password = $val->password;
-      $no_telp = $val->no_telp;
+      $nama_transaksi = $val->nama_transaksi;
+      $Tanggal = $val->Tanggal;
+      $jenis = $val->jenis;
+      $Jumlah = $val->Jumlah;
+      $SALDO = $val->SALDO;
       }
     }
  ?>
@@ -79,11 +77,14 @@ if ($op=='edit')
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
 
 		          <div class="form-group">
+		          	 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
+                     <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+
 		            <label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
-		            <input type="text" class="form-control" id="recipient-name" required>
+		            <input type="text" name="nama_transaksi" value="<?php echo $nama_transaksi ?>" class="form-control" id="recipient-name" required>
 		          </div>
 		          <div class="form-group">
 		              <label>Tanggal</label>

@@ -43,7 +43,7 @@ if ($op=='edit')
                               foreach ($kegiatan as $nama) {
                                 
                               ?>
-                              <option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?></option>
+                              <option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?>   (<?php echo $nama->tahun_kep; ?>)</option>
                              
                               <?php 
 
@@ -89,6 +89,7 @@ if ($op=='edit')
                       <tr style="background: dodgerblue;">
                         <th style="text-align: center;">No. Nota</th>
                         <th style="text-align: center;">NAMA KEGIATAN</th>
+                        <th style="text-align: center;">TAHUN</th>
                         <th style="text-align: center;">FILE</th>
                         <th style="text-align: center;">AKSI</th>
                       </tr>
@@ -102,6 +103,7 @@ if ($op=='edit')
                       <tr>
                         <td><?php echo $nota->no_nota  ?></td>
                         <td><?php echo $nota->nama_kegiatan  ?></td>
+                        <td><?php echo $nota->tahun  ?></td>
                         <td><?php echo $nota->gambar  ?></td>
                         <td>
                            <a href="<?php echo base_url();?>nota/edit/<?php echo $nota->id ?>" class="btn btn-sm btn-warning ">Edit</a>
