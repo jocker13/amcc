@@ -117,8 +117,11 @@ if ($op=='edit')
               ?>
           <tbody>
   	 		<tr>
+           <?php 
+           $newDate = date("d-m-Y", strtotime($notabaru->tanggal))
+            ?>
   	 			<td><?php echo $notabaru->no_nota  ?></td>
-  	 			<td><?php echo $notabaru->tanggal  ?></td>
+  	 			<td><?php echo  $newDate  ?></td>
   	 			<td><?php echo $notabaru->dari ?></td>
   	 			<td><?php echo $notabaru->uang  ?></td>
   	 			<td><?php echo $notabaru->terbilang  ?></td>
