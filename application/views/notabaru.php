@@ -123,7 +123,7 @@ if ($op=='edit')
                    <td><?php echo $notabaru->no_nota  ?></td>
                    <td><?php echo  $newDate  ?></td>
                    <td><?php echo $notabaru->dari ?></td>
-                   <td><?php echo $notabaru->uang  ?></td>
+                   <td>Rp <?php echo number_format($notabaru->uang,2,',','.')  ?></td>
                    <td><?php echo $notabaru->terbilang  ?></td>
                    <td><?php echo $notabaru->penerima  ?></td>
                    <td><?php echo $notabaru->no_telp  ?></td>
