@@ -1,3 +1,27 @@
+<?php 
+    $op;
+    $id = "";
+    $nama_sie = "";
+    $nama_estimasi ="";
+    $banyak = "";
+    $harga_satuan = "";
+
+
+if ($op=='edit')
+ {
+    foreach ($sql as $val) {
+      $op = "edit";                                                                                                           
+      $id = $val->id;
+      $nama_sie = $val->nama_sie;
+      $nama_estimasi = $val->nama_estimasi;
+      $banyak = $val->banyak;
+      $harga_satuan = $val->harga_satuan;
+
+      }
+    }
+ ?>
+
+
 <div class="row">
 	<div class="col-lg-12">
 		<h2 class="page-header" align="center">ESTIMASI</h2>
@@ -10,7 +34,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-4">
-						<form role="form"  action="<?php echo base_url(); ?>estimasi/simpan" method="POST">
+						<form role="form"  action="<?php echo base_url(); ?>estimasi/tampilkan" method="POST">
 							<div class="form-group">
 								<label>Tahun Kepengurusan</label>
 
@@ -94,16 +118,20 @@
 
 
 			<?php
-			$jml=0;
-			foreach ($sd as $val) {
-				$jml=$val->banyak*$val->harga_satuan;
+			$no=0;
+			$jumlah=0;
+			foreach ($sql as $val) {
+				$jumlah=$val->banyak*$val->harga_satuan;
+				$no++;
 				?>
 				<tbody>
 					<tr>
+						<td><?php echo $no ?> </td>
+						<td><?php echo $val->nama_sie  ?></td>
 						<td><?php echo $val->nama_estimasi  ?></td>
 						<td><?php echo $val->banyak  ?></td>
-						<td><?php echo $val->harga_satuan  ?></td>
-						<td><?php echo $jml  ?></td>
+						<td>Rp <?php echo number_format($val->harga_satuan,2,',','.')?></td>
+						<td>Rp <?php echo number_format($jumlah,2,',','.')?></td>
 						<td align ="center">
 							<a href="<?php echo base_url();?>estimasi/edit/<?php echo $val->id ?>" class="btn btn-sm btn-warning ">Edit</a>
 							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
@@ -111,7 +139,6 @@
 						</tr>
 					</tbody>
 					<?php
-
 				}
 				?>
 			</table>
@@ -136,13 +163,17 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form role="form"  action="<?php echo base_url(); ?>estimasi/simpan" method="POST">
+
+					 <div class="form-group">
+		          	 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
+                     <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
 					<div class="form-group">
 						<label>NAMA KEGIATAN</label>
 					</div>
 					<div class="form-group">
 						<label>Nama Sie</label>
-						<select class="form-control" name="namasie">
+						<select class="form-control" name="nama_sie">
 							<option>SUMBER DANA</option>
 							<option>KONSUMSI</option>
 							<option>PDD</option>
@@ -154,17 +185,17 @@
 						</select>
 					</div>					
 					<div class="form-group">
-						<label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<label for="nama_estimasi-name" class="form-control-label">Nama Transaksi</label>
+						<input type="text" name="nama_estimasi" value="<?php echo $nama_estimasi ?>" class="form-control" id="recipient-name" required>
 					</div>
 
 					<div class="form-group">
 						<label for="banyak-name" class="form-control-label">Banyak</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<input type="text" name="banyak" value="<?php echo $banyak?>" class="form-control" id="recipient-name" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">Harga Satuan</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<input type="text" name="harga_satuan" value="<?php echo $harga_satuan ?>"  class="form-control" id="recipient-name" required>
 					</div>
 
 				</div>
