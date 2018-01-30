@@ -9,7 +9,7 @@
 if ($op=='edit')
  {
     foreach ($sql as $val) {
-      $op = "edit";
+      $op = "edit";                                                                                                           
       $id = $val->id;
       $nama_transaksi = $val->nama_transaksi;
       $tanggal = $val->tanggal;
