@@ -10,7 +10,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-4">
-						<form role="form"  action="<?php echo base_url(); ?>notabaru/simpan" method="POST">
+						<form role="form"  action="<?php echo base_url(); ?>estimasi/simpan" method="POST">
 							<div class="form-group">
 								<label>Tahun Kepengurusan</label>
 
