@@ -1,6 +1,7 @@
 <?php 
     $op;
     $id = "";
+    $jenis = "";
     $nama_sie = "";
     $nama_estimasi ="";
     $banyak = "";
@@ -12,6 +13,7 @@ if ($op=='edit')
     foreach ($sql as $val) {
       $op = "edit";                                                                                                           
       $id = $val->id;
+      $jenis = $val->jenis;
       $nama_sie = $val->nama_sie;
       $nama_estimasi = $val->nama_estimasi;
       $banyak = $val->banyak;
@@ -107,10 +109,9 @@ if ($op=='edit')
 
 				<table class="table table-bordered table-striped">
 					<th style="background: deepskyblue; text-align: center;">NO</th>
+					<th style="background: deepskyblue; text-align: center;">JENIS</th>
 					<th style="background: deepskyblue; text-align: center;">NAMA SIE</th>
 					<th style="background: deepskyblue; text-align: center;">NAMA TRANSAKSI</th>
-
-
 					<th style="background: deepskyblue; text-align: center;"><b>BANYAK</b></th>
 					<th style="background: deepskyblue; text-align: center;"><b>HARGA SATUAN</b></th>
 					<th style="background: deepskyblue; text-align: center;"><b>JUMLAH</b></th>
@@ -127,6 +128,7 @@ if ($op=='edit')
 				<tbody>
 					<tr>
 						<td><?php echo $no ?> </td>
+						<td><?php echo $val->jenis ?> </td>
 						<td><?php echo $val->nama_sie  ?></td>
 						<td><?php echo $val->nama_estimasi  ?></td>
 						<td><?php echo $val->banyak  ?></td>
@@ -170,6 +172,13 @@ if ($op=='edit')
                      <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
 					<div class="form-group">
 						<label>NAMA KEGIATAN</label>
+					</div>
+					<div class="form-group">
+						<label>Jenis</label>
+						<select class="form-control" name="jenis">
+							<option>PEMASUKAN</option>
+							<option>PENGELUARAN</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<label>Nama Sie</label>

@@ -55,8 +55,8 @@ if ($op=='edit')
                   <td><?php echo $tran->nama_transaksi  ?></td>
                   <td><?php echo $newDate  ?></td>
                   <td><?php echo $tran->jenis  ?></td>
-                  <td><?php echo $tran->jumlah  ?></td>
-                  <td><?php echo $tran->saldo  ?></td>
+                  <td>Rp <?php echo number_format( $tran->jumlah,2.,',',',')  ?></td>
+                  <td>Rp <?php echo number_format($tran->saldo,2,',',',')  ?></td>
                   <!-- <td> -->
                    <!--  <a href="<?php echo base_url();?>TransaksiUmum/edit/<?php echo $tran->id ?>" class="btn btn-sm btn-warning ">Edit</a> -->
                    <!--  <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>TransaksiUmum/hapus/<?php echo $tran->id ?>';}" class="btn btn-sm btn-danger">Hapus</button></a>  -->

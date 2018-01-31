@@ -19,24 +19,31 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 </head>
-<body  >
-	
+<body style="background: url('assets/img/amcc1.png');  filter: alpha; background-size: auto; height: 100%; width: 100%; background-repeat: no-repeat; background-position: center; opacity: 0.95;";  >
+
 	<div class="row">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- <img style="opacity: 0.5; filter: alpha; background-size:100%; margin: auto; width: 50%; height: 50%;" src="<?php  echo base_url('assets/img/amcc1.png');?>"> -->
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<?php
-	if (isset($logout_message)) {
-		echo "<div class='message'>";
-		echo $logout_message;
-		echo "</div>";
-	}
-	?>
-	<?php
-	if (isset($message_display)) {
-		echo "<div class='message'>";
-		echo $message_display;
-		echo "</div>";
-	}
-	?>
+			if (isset($logout_message)) {
+				echo "<div class='message'>";
+				echo $logout_message;
+				echo "</div>";
+			}
+			?>
+			<?php
+			if (isset($message_display)) {
+				echo "<div class='message'>";
+				echo $message_display;
+				echo "</div>";
+			}
+			?>
 			<div class="login-panel panel panel-default">
 
 				<div class="panel-heading">Log in</div>
@@ -56,15 +63,15 @@ if (isset($this->session->userdata['logged_in'])) {
 					<div class="form-group">
 						<input class="form-control" placeholder="password" name="password" id="password" type="password" value="">
 					</div>
-
-					<input type="submit" value=" Login " name="submit" class="btn btn-primary" /><br />
-					<!-- <a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To SignUp Click Here</a> -->
-					<!-- <?php echo form_close(); ?> -->
+					<div class="form-group" align="right">
+						<input  type="submit" value=" Login " name="submit" class="btn btn-primary" /><br />
+						<!-- <a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To SignUp Click Here</a> -->
+						<!-- <?php echo form_close(); ?> -->
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
 

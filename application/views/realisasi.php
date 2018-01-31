@@ -1,3 +1,31 @@
+<?php 
+    $op;
+    $id = "";
+    $jenis = "";
+    $nama_sie = "";
+    $nama_estimasi ="";
+    $banyak = "";
+    $harga_satuan = "";
+    $no_nota = "";
+
+
+if ($op=='edit')
+ {
+    foreach ($sql as $val) {
+      $op = "edit";                                                                                                           
+      $id = $val->id;
+      $jenis = $val->jenis;
+      $nama_sie = $val->nama_sie;
+      $nama_estimasi = $val->nama_estimasi;
+      $banyak = $val->banyak;
+      $harga_satuan = $val->harga_satuan;
+      $no_nota = $val->no_nota;
+
+
+      }
+    }
+ ?>
+
 <div class="row">
 	<div class="col-lg-12">
 		<h2 class="page-header" align="center">REALISASI</h2>
@@ -10,7 +38,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-4">
-						<form role="form"  action="<?php echo base_url(); ?>notabaru/simpan" method="POST">
+						<form role="form"  action="<?php echo base_url(); ?>realisasi/simpan" method="POST">
 							<div class="form-group">
 								<label>Tahun Kepengurusan</label>
 
@@ -83,6 +111,7 @@
 
 				<table class="table table-bordered table-striped">
 					<th style="background: deepskyblue; text-align: center;">NO</th>
+					<th style="background: deepskyblue; text-align: center;">JENIS</th>
 					<th style="background: deepskyblue; text-align: center;">NAMA SIE</th>
 					<th style="background: deepskyblue; text-align: center;">NAMA TRANSAKSI</th>
 					<th style="background: deepskyblue; text-align: center;"><b>BANYAK</b></th>
@@ -92,27 +121,33 @@
 					<th style="background: deepskyblue; text-align: center;"><b>AKSI</b></th>
 
 
-			<!-- <?php
+		<?php
+			$no=0;
 			$jml=0;
-			foreach ($sd as $val) {
+			foreach ($sql as $val) {
 				$jml=$val->banyak*$val->harga_satuan;
+				$no++;
 				?>
 				<tbody>
 					<tr>
+						<td><?php echo $no ?> </td>
+						<td><?php echo $val->jenis ?> </td>
+						<td><?php echo $val->nama_sie  ?></td>
 						<td><?php echo $val->nama_realisasi  ?></td>
 						<td><?php echo $val->banyak  ?></td>
 						<td><?php echo $val->harga_satuan  ?></td>
 						<td><?php echo $jml  ?></td>
+						<td><?php echo $no_nota  ?></td>
 						<td align ="center">
-							<a href="<?php echo base_url();?>estimasi/edit/<?php echo $val->id ?>" class="btn btn-sm btn-warning ">Edit</a>
-							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
+							<a href="<?php echo base_url();?>realisasi/edit/<?php echo $val->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>realisasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
 							</td>
 						</tr>
 					</tbody>
 					<?php
 
 				}
-				?> -->
+				?>
 			</table>
 		</div>
 	</div>
@@ -140,8 +175,15 @@
 						<label>NAMA KEGIATAN</label>
 					</div>
 					<div class="form-group">
+						<label>JENIS</label>
+						<select class="form-control" name="jenis">
+							<option>PEMASUKAN</option>
+							<option>PENGELUARAN</option>
+						</select>
+					</div>
+					<div class="form-group">
 						<label>Nama Sie</label>
-						<select class="form-control" name="namasie">
+						<select class="form-control" name="nama_sie">
 							<option>SUMBER DANA</option>
 							<option>KONSUMSI</option>
 							<option>PDD</option>

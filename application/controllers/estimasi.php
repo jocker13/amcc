@@ -22,14 +22,16 @@ class Estimasi extends CI_Controller {
 	}
 	public function simpan()
 	{
-		$nama_sie=$this->input->post("nama_sie");
+		$jenis=$this->input->post("jenis");
 		$id=$this->input->post("id");
 		$op=$this->input->post("op");
+		$nama_sie=$this->input->post("nama_sie");
 		$nama_estimasi=$this->input->post("nama_estimasi");
 		$banyak=$this->input->post("banyak");
 		$harga_satuan=$this->input->post("harga_satuan");
 		$jumlah=$this->input->post("jumlah");
 		$data = array(
+			'jenis'=> $jenis,
 			'nama_sie' => $nama_sie, 
 			'nama_estimasi' => $nama_estimasi, 
 			'banyak' => $banyak,
