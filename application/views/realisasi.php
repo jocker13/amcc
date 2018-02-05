@@ -3,7 +3,7 @@
     $id = "";
     $jenis = "";
     $nama_sie = "";
-    $nama_estimasi ="";
+    $nama_realisasi ="";
     $banyak = "";
     $harga_satuan = "";
     $no_nota = "";
@@ -16,7 +16,7 @@ if ($op=='edit')
       $id = $val->id;
       $jenis = $val->jenis;
       $nama_sie = $val->nama_sie;
-      $nama_estimasi = $val->nama_estimasi;
+      $nama_realisasi = $val->nama_realisasi;
       $banyak = $val->banyak;
       $harga_satuan = $val->harga_satuan;
       $no_nota = $val->no_nota;
@@ -110,15 +110,15 @@ if ($op=='edit')
 			<div class="panel-body">
 
 				<table class="table table-bordered table-striped">
-					<th style="background: deepskyblue; text-align: center;">NO</th>
-					<th style="background: deepskyblue; text-align: center;">JENIS</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA SIE</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA TRANSAKSI</th>
-					<th style="background: deepskyblue; text-align: center;"><b>BANYAK</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>HARGA SATUAN</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>JUMLAH</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>NO. NOTA</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>AKSI</b></th>
+					<th style="background: dodgerblue; text-align: center;">NO</th>
+					<th style="background: dodgerblue; text-align: center;">JENIS</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
+					<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>NO. NOTA</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
 
 
 		<?php
@@ -195,21 +195,22 @@ if ($op=='edit')
 						</select>
 					</div>					
 					<div class="form-group">
-						<label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
+						<label for="nama_realisasi-name" class="form-control-label">Nama Transaksi</label>
+						<input type="text" name="nama_realisasi" value="<?php echo $nama_realisasi ?>" class="form-control" id="recipient-name" required>
 						<input type="text" class="form-control" id="recipient-name" required>
 					</div>
 
 					<div class="form-group">
 						<label for="banyak-name" class="form-control-label">Banyak</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<input type="text" name="banyak" value="<?php echo $banyak?>" class="form-control" id="recipient-name" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">Harga Satuan</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<input type="text" name="harga_satuan" value="<?php echo $harga_satuan ?>"  class="form-control" id="recipient-name" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">NO. NOTA</label>
-						<input type="text" class="form-control" id="recipient-name" required>
+						<input type="text" name="no_nota" value="<?php echo $no_nota ?>" class="form-control" id="recipient-name" required>
 					</div>
 
 				</div>

@@ -108,14 +108,14 @@ if ($op=='edit')
 			<div class="panel-body">
 
 				<table class="table table-bordered table-striped">
-					<th style="background: deepskyblue; text-align: center;">NO</th>
-					<th style="background: deepskyblue; text-align: center;">JENIS</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA SIE</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA TRANSAKSI</th>
-					<th style="background: deepskyblue; text-align: center;"><b>BANYAK</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>HARGA SATUAN</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>JUMLAH</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>AKSI</b></th>
+					<th style="background: dodgerblue; text-align: center;">NO</th>
+					<th style="background: dodgerblue; text-align: center;">JENIS</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
+					<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
 
 
 			<?php

@@ -95,18 +95,18 @@ if ($op=='edit')
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <table class="table table-hover">
+                <table class="table table-bordered table-striped">
                  <thead>
-                  <tr style="text-align: center;">
-                   <th style="text-align: center">NO.NOTA</th>
-                   <th style="text-align: center">TANGGAL</th>
-                   <th style="text-align: center">DITERIMA DARI</th>
-                   <th style="text-align: center">UANG SEBESAR</th>
-                   <th style="text-align: center">TERBILANG</th>
-                   <th style="text-align: center">PENERIMA</th>
-                   <th style="text-align: center">No. Telp</th>
-                   <th style="text-align: center">KETERANGAN</th>
-                   <th style="text-align: center">AKSI</th>
+                  <tr style="background: dodgerblue; text-align: center; ">
+                   <th style="background: dodgerblue; text-align: center">NO.NOTA</th>
+                   <th style="background: dodgerblue; text-align: center">TANGGAL</th>
+                   <th style="background: dodgerblue; text-align: center">DITERIMA DARI</th>
+                   <th style="background: dodgerblue; text-align: center">UANG SEBESAR</th>
+                   <th style="background: dodgerblue; text-align: center">TERBILANG</th>
+                   <th style="background: dodgerblue; text-align: center">PENERIMA</th>
+                   <th style="background: dodgerblue; text-align: center">No. Telp</th>
+                   <th style="background: dodgerblue; text-align: center">KETERANGAN</th>
+                   <th style="background: dodgerblue; text-align: center">AKSI</th>
                  </tr>
                  
                </thead>  

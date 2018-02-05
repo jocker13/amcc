@@ -2,6 +2,7 @@
 $op;
 $id = "";
 $nama_sie ="";
+$jenis ="";
 $nama_transaksi = "";
 $banyak = "";
 $harga_satuan = "";
@@ -11,12 +12,12 @@ if ($op=='edit')
   foreach ($sql as $val) {
     $op = "edit";
     $id = $val->id;
+    $jenis = $val->jenis;
     $nama_sie = $val->nama_sie;
     $nama_transaksi = $val->nama_transaksi;
     $banyak = $val->banyak;
     $harga_satuan = $val->harga_satuan;
     $no_nota = $val->no_nota;
-    //$no_telp = $val->no_telp;
   }
 }
 ?>
@@ -45,14 +46,15 @@ if ($op=='edit')
 			<div class="panel-body">
 
 				<table class="table table-bordered table-striped">
-					<th style="background: deepskyblue; text-align: center;">NO</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA SIE</th>
-					<th style="background: deepskyblue; text-align: center;">NAMA TRANSAKSI</th>
-					<th style="background: deepskyblue; text-align: center;"><b>BANYAK</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>HARGA SATUAN</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>JUMLAH</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>NO. NOTA</b></th>
-					<th style="background: deepskyblue; text-align: center;"><b>AKSI</b></th>
+					<th style="background: dodgerblue; text-align: center;">NO</th>
+					<th style="background: dodgerblue; text-align: center;">JENIS</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
+					<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
+					<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>NO. NOTA</b></th>
+					<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
 					<?php
 					$no=0;
 					foreach ($sql as $detail) {
@@ -62,6 +64,7 @@ if ($op=='edit')
 						<tbody>
 							<tr>
 								<td><?php echo $no  ?> </td>
+								<td><?php echo $detail->jenis  ?> </td>
 								<td><?php echo $detail->nama_sie ?> </td>
 								<td><?php echo $detail->nama_transaksi ?> </td>
 								<td><?php echo $detail->banyak ?> </td>
@@ -70,7 +73,7 @@ if ($op=='edit')
 								<td><?php echo $detail->no_nota ?> </td>
 
 								<td>
-									<a href="<?php echo base_url();?>User/edit/<?php echo $detail->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+									<a href="<?php echo base_url();?>detailtransaksi/edit/<?php echo $detail->id ?>" class="btn btn-sm btn-warning ">Edit</a>
 									<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>detailtransaksi/hapus/<?php echo $detail->id ?>';}" class="btn btn-sm btn-danger">Hapus</button> </td>
 									</tr>
 								</tbody>
@@ -105,6 +108,14 @@ if ($op=='edit')
               <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
               <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
 					<div class="form-group">
+						<label>JENIS</label>
+						<select class="form-control" name="jenis">
+							<option>PEMASUKAN</option>
+							<option>PENGELUARAN</option>
+						</select>
+					</div>				
+
+					<div class="form-group">
 						<label>Nama Sie</label>
 						<select class="form-control" name="nama_sie">
 							<option>SUMBER DANA</option>
@@ -116,21 +127,21 @@ if ($op=='edit')
 						</select>
 					</div>					
 					<div class="form-group">
-						<label for="namatransaksi-name" class="form-control-label">Nama Transaksi</label>
-						<input type="text" class="form-control" id="recipient-name" name="nama_transaksi" required>
+						<label for="nama_transaksi-name" class="form-control-label">Nama Transaksi</label>
+						<input type="text" value="<?php echo $nama_transaksi?>" class="form-control" id="recipient-name" name="nama_transaksi" required>
 					</div>
 
 					<div class="form-group">
 						<label for="banyak-name" class="form-control-label">Banyak</label>
-						<input type="text" class="form-control" id="recipient-name" name="banyak" required>
+						<input type="text" value="<?php echo $banyak?>" class="form-control" id="recipient-name" name="banyak" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">Harga Satuan</label>
-						<input type="text" class="form-control" id="recipient-name" name="harga_satuan" required>
+						<input type="text" value="<?php echo $harga_satuan?>" class="form-control" id="recipient-name" name="harga_satuan" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">NO. NOTA</label>
-						<input type="text" class="form-control" id="recipient-name" name="no_nota" required>
+						<input type="text" value="<?php echo $no_nota ?>" class="form-control" id="recipient-name" name="no_nota" required>
 					</div>
 
 				</div>

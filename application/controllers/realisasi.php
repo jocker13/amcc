@@ -25,7 +25,7 @@ public function __construct(){
 		$id=$this->input->post("id");
 		$op=$this->input->post("op");
 		$nama_sie=$this->input->post("nama_sie");
-		$nama_estimasi=$this->input->post("nama_transaksi");
+		$nama_realisasi=$this->input->post("nama_realisasi");
 		$banyak=$this->input->post("banyak");
 		$harga_satuan=$this->input->post("harga_satuan");
 		$jumlah=$this->input->post("jumlah");
@@ -33,7 +33,7 @@ public function __construct(){
 		$data = array(
 			'jenis'=> $jenis,
 			'nama_sie' => $nama_sie, 
-			'nama_estimasi' => $nama_estimasi, 
+			'nama_realisasi' => $nama_realisasi, 
 			'banyak' => $banyak,
 			'harga_satuan' => $harga_satuan,
 			'no_nota' => $no_nota

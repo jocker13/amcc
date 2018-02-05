@@ -86,7 +86,7 @@ if ($op=='edit')
           <div class="row">
             <div class="col-lg-12">
 
-              <table class="table table-hover">
+              <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th style="background: dodgerblue; text-align: center;">NIM</th>

@@ -23,11 +23,13 @@ class DetailTransaksi extends CI_Controller {
 		$id=$this->input->post("id");
 		$op=$this->input->post("op");
 		$nama_transaksi=$this->input->post("nama_transaksi");
+		$jenis=$this->input->post("jenis");
 		$banyak=$this->input->post("banyak");
 		$harga_satuan=$this->input->post("harga_satuan");
 		$no_nota=$this->input->post("no_nota");
 		$data = array(
 			'nama_sie' => $nama_sie , 
+			'jenis' => $jenis , 
 			'nama_transaksi' => $nama_transaksi, 
 			'banyak' => $banyak, 
 			'harga_satuan' => $harga_satuan, 
