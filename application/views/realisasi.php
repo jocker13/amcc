@@ -38,16 +38,16 @@ if ($op=='edit')
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-4">
-						<form role="form"  action="<?php echo base_url(); ?>realisasi/simpan" method="POST">
+						<!-- <form role="form"  > -->
 							<div class="form-group">
 								<label>Tahun Kepengurusan</label>
 
-								<select class="form-control" name="id_kegiatan" >
+								<select class="form-control" onchange="showkegiatan(this)" name="tahun_kep" >
 									<?php 
 									foreach ($kegiatan as $nama) {
 
 										?>
-										<option value="<?php echo $nama->id ?>" ><?php echo $nama->tahun_kep; ?></option>
+										<option value="<?php echo $nama->tahun_kep ?>" ><?php echo $nama->tahun_kep; ?></option>
 
 										<?php 
 
@@ -63,36 +63,27 @@ if ($op=='edit')
 							<div class="form-group">
 								<label>NAMA KEGIATAN</label>
 
-								<select class="form-control" name="id_kegiatan" >
-									<?php 
-									foreach ($kegiatan as $nama) {
-
-										?>
-										<option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?></option>
-
-										<?php 
-
-									}
-									?>
-
+								<select class="form-control" name="id_kegiatan" id='kegiatan' disabled="">
+									
 								</select>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<!-- </form>
+ -->						<div class="col-md-4">
 							<div class="form-group">
 								
 								<br>
-								<button type="submit" class="btn btn-primary">Tampilkan</button>
+								<button   onclick="show()" class="btn btn-primary">Tampilkan</button>
 							</div>  
 						</div>
-					</form>
+					
 				</div>
 			</div>
 		</div> 
 	</div> 
 </div><!--/.row-->
 
-<div class="row">
+<div class="row" id="realisasi_form" style="display:none;">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<form class="navbar-form navbar-right" role="search">
@@ -154,7 +145,37 @@ if ($op=='edit')
 </div>
 </div> <!--End .TABEL-->
 
+<script type="text/javascript">
+	var realisasi=document.getElementById('tampil');
+	var realisasi_div=document.getElementById('realisasi_form');
+	function show() {
+		realisasi_div.style['display']='block';
+	}
 
+
+	function showkegiatan(selectObject){
+			console.log(selectObject.value);
+			var tahun =selectObject.value;
+			if (tahun=='') {
+				$('#kegiatan').prop('disabled',true);
+			}else{
+				// alert('aaaaaaaaaaaaaaaaaaa');
+				$('#kegiatan').prop('disabled',false);
+				$.ajax({
+					url:"<?php echo base_url() ?>realisasi/getKegiatantahun",
+					type:"POST",
+					data:{'tahun_kep': tahun},
+					dataType:'json'
+					// success: function(){
+					// 		alert('aaaaaaaaa');
+					// },	
+					// error : function(){
+					// 	alert('eroor');
+					// }
+				});			
+			}
+	}
+</script>
 
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
