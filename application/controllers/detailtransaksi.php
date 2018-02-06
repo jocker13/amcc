@@ -55,12 +55,32 @@ class DetailTransaksi extends CI_Controller {
 
 	public function edit($id)
 	{
+		$nama_sie=$this->input->post("nama_sie");
+		$id=$this->input->post("id");
+		$op=$this->input->post("op");
+		$nama_transaksi=$this->input->post("nama_transaksi");
+		$jenis=$this->input->post("jenis");
+		$banyak=$this->input->post("banyak");
+		$harga_satuan=$this->input->post("harga_satuan");
+		$no_nota=$this->input->post("no_nota");
 		$data = array(
-			"container" => "detailtransaksi"
+			'nama_sie' => $nama_sie , 
+			'jenis' => $jenis , 
+			'nama_transaksi' => $nama_transaksi, 
+			'banyak' => $banyak, 
+			'harga_satuan' => $harga_satuan, 
+			'no_nota' => $no_nota
 		);
-		$data['op']='edit';
-		$data['sql']=$this->detailtran_model->edit($id)->result();
-		$this->load->view("template", $data);
+		$this->detailtran_model->edit($data,$id);
+		$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('detailtransaksi');
+
+		// $data = array(
+		// 	"container" => "detailtransaksi"
+		// );
+		// $data['op']='edit';
+		// $data['sql']=$this->detailtran_model->edit($id)->result();
+		// $this->load->view("template", $data);
 	}
 }
 

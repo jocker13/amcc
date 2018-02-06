@@ -21,11 +21,15 @@ class detailtran_model extends CI_Model {
 	public function edit($id)
 	{
 		$this->db->where('id',$id);
-		return $this->db->get('detail_transaksi');
+        $this->db->update('detail_transaksi', $data);
+        return TRUE;
+		// $this->db->where('id',$id);
+		// return $this->db->get('detail_transaksi');
 	}
 	public function ubah($id,$data)
 	{
 		$this->db->where('id',$id);
 		$this->db->update('detail_transaksi', $data);
+		return true;
 	}
 }

@@ -9,6 +9,11 @@ class kegiatan_model extends CI_Model {
 		$sql =$this->db->query("select * from kegiatan");
 		return $sql;
 	}
+	public function getKegiatanBytahun($tahun_kep)
+	{
+		$this->db->where('tahun_kep',$tahun_kep);
+		return $this->db->get('kegiatan');
+	}
 	public function save($data)
 	{
 		$this->db->insert('kegiatan',$data);

@@ -76,6 +76,7 @@ Class Login extends CI_Controller {
 				'password' => $this->input->post('password')
 			);
 			$result = $this->login_model->login($data);
+			
 			if ($result == TRUE) {
 
 				$username = $this->input->post('NIM');
@@ -85,8 +86,9 @@ Class Login extends CI_Controller {
 						'NIM' => $result[0]->NIM,
 						'email' => $result[0]->email,
 						'nama' => $result[0]->nama,
+						'level'	=> $result[0]->jabatan
 					);
-// Add user data in session
+					// Add user data in session
 					$this->session->set_userdata('logged_in', $session_data);
 					$data = array(
 						"container" => "home"

@@ -7,6 +7,7 @@ if (isset($this->session->userdata['logged_in'])) {
 	$NIM = ($this->session->userdata['logged_in']['NIM']);
 	$nama = ($this->session->userdata['logged_in']['nama']);
 	$email = ($this->session->userdata['logged_in']['email']);
+	$level = ($this->session->userdata['logged_in']['level']);
 } else {
 // header("location: login");
 }
@@ -108,18 +109,27 @@ if (isset($this->session->userdata['logged_in'])) {
 				<div class="divider"></div>
 				
 				<ul class="nav menu">
+					
+					<?php if($level == 'admin'): ?>
 					<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
-
+					<?php endif; ?>
+					<?php if($level == 'admin' || $level == 'user'): ?>
 					<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
-
+					<?php endif; ?>
+					<?php if($level == 'admin' || $level == 'user'): ?>
 					<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
+					<?php endif; ?>
 
+					<?php if($level == 'admin' || $level == 'user'): ?>
 					<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
-
+					<?php endif; ?>
+					<?php if($level == 'admin'): ?>
 					<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
-
+					<?php endif; ?>
+						<?php if($level == 'admin'): ?>
 					<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
-
+					<?php endif; ?>
+					<?php if($level == 'admin' || $level == 'user'): ?>
 					<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
 						<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
@@ -131,6 +141,7 @@ if (isset($this->session->userdata['logged_in'])) {
 							<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
 						</a></li>
 					</ul>
+				    <?php endif; ?>
 					<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 						<em class="fa fa-navicon">&nbsp;</em> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
@@ -141,16 +152,23 @@ if (isset($this->session->userdata['logged_in'])) {
 						<li><a class="" href=" <?php echo base_url('/laporan_realisasi') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Realisasi
 						</a></li>
+							<?php if($level == 'admin' || $level == 'ketua'): ?>
 						<li><a class="" href="<?php echo base_url('/laporan_tranumum') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
 						</a></li>
+						 <?php endif; ?>
+						 <?php if($level == 'admin' || $level == 'ketua'): ?>
 						<li><a class="" href=" <?php echo base_url('/detailtransaksi') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
 						</a></li>
+						<?php endif; ?>
+						 <?php if($level == 'admin' || $level == 'user'): ?>
 						<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Cetak Nota Baru
 						</a></li>
+						<?php endif; ?>
 					</ul>
+
 				<!-- </li>
 					<li><a href="<?php echo base_url('/nota') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
 					<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li> -->

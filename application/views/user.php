@@ -83,8 +83,19 @@ if ($op=='edit')
       <div class="panel panel-default">
         <div class="panel-heading">DAFTAR NOTA BARU</div>
         <div class="panel-body">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="nama pengguna" name="srch-term" id="srch-term">
+              <div class="input-group-btn">
+                <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
+                </button>
+              </div>
+            </div>
+          </form>
           <div class="row">
+
             <div class="col-lg-12">
+
 
               <table class="table table-bordered table-striped">
                 <thead>

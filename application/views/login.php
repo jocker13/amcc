@@ -19,7 +19,7 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 </head>
-<body style="background: url('assets/img/amcc1.png');  filter: alpha; background-size: auto; height: 100%; width: 100%; background-repeat: no-repeat; background-position: center; opacity: 0.95;"  >
+<body style="background: url('assets/img/amcc1.png'); filter: alpha; background-size: auto; height: 100%; width: 100%; background-repeat: no-repeat; background-position: center; opacity: 0.95;"  >
 
 	<div class="row">
 		<br>

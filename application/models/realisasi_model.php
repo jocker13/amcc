@@ -6,7 +6,7 @@ class realisasi_model extends CI_Model {
 
 	public function getRealisasi()
 	{
-		$sql =$this->db->query("select r.*, e.nama_estimasi from realisasi r left join estimasi e on r.id_estimasi = e.id");
+		$sql =$this->db->query("select r.*, e.nama_estimasi from realisasi r  join estimasi e on r.id_estimasi = e.id");
 		return $sql;
 	}
 	public function save($data)

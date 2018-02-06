@@ -17,6 +17,7 @@ public function __construct(){
 		$data['op']='tambah';
 		$data['sql']=$this->realisasi_model->getRealisasi()->result();
 		$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();
+		// $data['kegiatantahun']=$this->kegiatan_model->getKegiatanBytahun($tahun_kep);
 		$this->load->view("template", $data);
 	}
 	public function simpan()
@@ -63,5 +64,20 @@ public function __construct(){
 		$data['op']='edit';
 		$data['sql']=$this->realisasi_model->edit($id)->result();
 		$this->load->view("template", $data);
+	}
+
+	public function getKegiatantahun(){
+		$tahun_kep=$this->input->post('tahun_kep');
+		$kegiatan=$this ->kegiatan_model->getKegiatanBytahun($tahun_kep)->result();
+		// print_r($kegiatan);
+		// exit();
+		if (count($kegiatan)>0) {
+			$kegiatan_select ='';
+			$kegiatan_select .='<option value="">Pilih Kegiatan</option>' ;
+			foreach ($kegiatan as $value) {
+				$kegiatan_select .='<option value="'.$value->id .'">'.$value->nama_kegiatan.'</option>';
+			}
+			echo json_encode($kegiatan_select);
+		}
 	}
 }
