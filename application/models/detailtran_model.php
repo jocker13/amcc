@@ -12,8 +12,9 @@ class detailtran_model extends CI_Model {
 	public function save($data)
 	{
 		$this->db->insert('detail_transaksi',$data);
+		
 	}
-	public function delete($id)
+	/*public function delete($id)
 	{
 		$this->db->where('id',$id);
 		$this->db->delete('detail_transaksi');
@@ -21,15 +22,15 @@ class detailtran_model extends CI_Model {
 	public function edit($id)
 	{
 		$this->db->where('id',$id);
-        $this->db->update('detail_transaksi', $data);
-        return TRUE;
-		// $this->db->where('id',$id);
-		// return $this->db->get('detail_transaksi');
+		$this->db->update('detail_transaksi', $data);
+		return TRUE;
+        return $this->db->get('detail_transaksi');
+
 	}
 	public function ubah($id,$data)
 	{
 		$this->db->where('id',$id);
 		$this->db->update('detail_transaksi', $data);
-		return true;
-	}
+		
+	}*/
 }

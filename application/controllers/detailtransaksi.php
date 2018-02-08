@@ -40,11 +40,11 @@ class DetailTransaksi extends CI_Controller {
 		// exit();
 		if ($op=="tambah") {
 			$this->detailtran_model->save($data);
+			$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 		else{
-			$this->detailtran_model->ubah($id, $data);
+			$this->detailtran_model->edit($id, $data);
 		}
-		// $this->user_model->save($data);
 		redirect('detailtransaksi');
 	}
 	public function hapus($id)
@@ -74,13 +74,13 @@ class DetailTransaksi extends CI_Controller {
 		$this->detailtran_model->edit($data,$id);
 		$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('detailtransaksi');
-
-		// $data = array(
-		// 	"container" => "detailtransaksi"
-		// );
-		// $data['op']='edit';
-		// $data['sql']=$this->detailtran_model->edit($id)->result();
-		// $this->load->view("template", $data);
+	
+		/*$data = array(
+		"container" => "detailtransaksi"
+		);
+		 $data['op']='edit';
+		$data['sql']=$this->detailtran_model->edit($id)->result();
+		$this->load->view("template", $data);*/
+		
 	}
 }
-
