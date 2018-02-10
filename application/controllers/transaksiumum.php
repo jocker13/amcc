@@ -21,20 +21,24 @@ class TransaksiUmum extends CI_Controller {
 	public function simpan()
 	{	
 		$da=$this->transaksiumum_model->getSaldoakhir();
+		$harga_satuan=$this->input->post("harga_satuan");
+		$banyak=$this->input->post("banyak");
+		$jumlah=$harga_satuan*$banyak;
 		if ($this->input->post("jenis")=="Pemasukan") {
-			$saldo1 =$da+$this->input->post("jumlah");
+			$saldo1 =$da+$jumlah;
 		}
 		else{
-			$saldo1 =$da-$this->input->post("jumlah");
+			$saldo1 =$da-$jumlah;
 		} 
+		// echo $saldo1;
+		// exit();
 		$nama_transaksi=$this->input->post("nama_transaksi");
 		$id_tran=$this->input->post("id_tran");
 		$op=$this->input->post("op");
 		$tanggal=$this->input->post("tanggal");
 		$jenis=$this->input->post("jenis");
 		$nama_sie=$this->input->post("nama_sie");
-		$harga_satuan=$this->input->post("harga_satuan");
-		$banyak=$this->input->post("banyak");
+		
 		/*$jumlah=$this->input->post("jumlah");*/
 		$no_nota=$this->input->post("no_nota");
 		$saldo=$saldo1;
@@ -49,14 +53,8 @@ class TransaksiUmum extends CI_Controller {
 			'no_nota' => $no_nota, 
 			'saldo' => $saldo 
 		);
-		// echo $op;
-		// exit();
-		if ($op=="tambah") {
+		
 			$this->transaksiumum_model->save($data);
-		}
-		else{
-			$this->transaksiumum_model->ubah($id_tran, $data);
-		}
 
 		redirect('transaksiumum');
 	}

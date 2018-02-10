@@ -56,10 +56,6 @@
               <td>Rp <?php echo number_format($jml,2.,',',',')  ?></td>
               <td> <?php echo $tran->no_nota  ?></td>
               <td>Rp <?php echo number_format($tran->saldo,2,',',',')  ?></td>
-              <!-- <td> -->
-               <!--  <a href="<?php echo base_url();?>TransaksiUmum/edit/<?php echo $tran->id ?>" class="btn btn-sm btn-warning ">Edit</a> -->
-               <!--  <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>TransaksiUmum/hapus/<?php echo $tran->id ?>';}" class="btn btn-sm btn-danger">Hapus</button></a>  -->
-               <!-- </td> -->
              </tr>
            </tbody>
            <?php
