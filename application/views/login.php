@@ -19,7 +19,7 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 </head>
-<body style="background: url('assets/img/amcc1.png'); filter: alpha; background-size: auto; height: 100%; width: 100%; background-repeat: no-repeat; background-position: center; opacity: 0.95;"  >
+<body style="filter: alpha; background-size: auto; height: 100%; width: 100%; background-repeat: no-repeat; background-position: center; "  >
 
 	<div class="row">
 		<br>
@@ -58,7 +58,7 @@ if (isset($this->session->userdata['logged_in'])) {
 					echo "</div>";
 					?>
 					<div class="form-group">
-						<input class="form-control" placeholder="NIM" name="NIM" id="NIM" type="text" autofocus="">
+						<input class="form-control" placeholder="NIM" name="nim" id="nim" type="text" autofocus="">
 					</div>
 					<div class="form-group">
 						<input class="form-control" placeholder="password" name="password" id="password" type="password" value="">

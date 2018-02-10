@@ -21,7 +21,7 @@ class NotaBaru extends CI_Controller {
 	public function simpan()
 	{
 		$no_nota=$this->input->post("no_nota");
-		$id=$this->input->post("id");
+		$id_notabaru=$this->input->post("id_notabaru");
 		$op=$this->input->post("op");
 		$tanggal=$this->input->post("tanggal");
 		$dari=$this->input->post("dari");
@@ -46,24 +46,24 @@ class NotaBaru extends CI_Controller {
 			$this->notabaru_model->save($data);
 		}
 		else{
-			$this->notabaru_model->ubah($id, $data);
+			$this->notabaru_model->ubah($id_notabaru, $data);
 		}
 		// $this->user_model->save($data);
 		redirect('notabaru');
 	}
-	public function hapus($id)
+	public function hapus($id_notabaru)
 	{
-		$this->notabaru_model->delete($id);
+		$this->notabaru_model->delete($id_notabaru);
 		redirect('notabaru');
 	}
 
-	public function edit($id)
+	public function edit($id_notabaru)
 	{
 		$data = array(
 			"container" => "notabaru"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->notabaru_model->edit($id)->result();
+		$data['sql']=$this->notabaru_model->edit($id_notabaru)->result();
 		$this->load->view("template", $data);
 	}
 }

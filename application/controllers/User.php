@@ -21,7 +21,7 @@ class User extends CI_Controller {
 	public function simpan()
 	{
 		$nim=$this->input->post("nim");
-		$id=$this->input->post("id");
+		$id_users=$this->input->post("id_users");
 		$op=$this->input->post("op");
 		$nama=$this->input->post("nama");
 		$jabatan=$this->input->post("jabatan");
@@ -34,7 +34,7 @@ class User extends CI_Controller {
 			'jabatan' => $jabatan, 
 			'email' => $email, 
 			'password' => $password, 
-			'no_telp' => $notelp 
+			'notelp' => $notelp 
 		);
 		// echo $op;
 		// exit();
@@ -42,24 +42,24 @@ class User extends CI_Controller {
 			$this->user_model->save($data);
 		}
 		else{
-			$this->user_model->ubah($id, $data);
+			$this->user_model->ubah($id_users, $data);
 		}
 		// $this->user_model->save($data);
 		redirect('user');
 	}
-	public function hapus($id)
+	public function hapus($id_users)
 	{
-		$this->user_model->delete($id);
+		$this->user_model->delete($id_users);
 		redirect('user');
 	}
 
-	public function edit($id)
+	public function edit($id_users)
 	{
 		$data = array(
 			"container" => "user"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->user_model->edit($id)->result();
+		$data['sql']=$this->user_model->edit($id_users)->result();
 		$this->load->view("template", $data);
 	}
 }

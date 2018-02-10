@@ -13,19 +13,19 @@ class user_model extends CI_Model {
 	{
 		$this->db->insert('users',$data);
 	}
-	public function delete($id)
+	public function delete($id_users)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_users',$id_users);
 		$this->db->delete('users');
 	}
-	public function edit($id)
+	public function edit($id_users)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_users',$id_users);
 		return $this->db->get('users');
 	}
-	public function ubah($id,$data)
+	public function ubah($id_users,$data)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_users',$id_users);
 		$this->db->update('users', $data);
 	}
 }

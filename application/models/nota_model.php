@@ -6,7 +6,7 @@ class nota_model extends CI_Model {
 
 	public function getnota()
 	{
-		$sql =$this->db->query("select n.*, k.nama_kegiatan as nama_kegiatan, k.tahun_kep as tahun from nota n join kegiatan k on n.id_kegiatan = k.id");
+		$sql =$this->db->query("select n.*, k.nama_kegiatan as nama_kegiatan, k.tahun_kep as tahun from nota n join kegiatan k on n.id_kegiatan = k.id_kegiatan");
 		return $sql;
 	}
 	public function save($data)
@@ -15,17 +15,17 @@ class nota_model extends CI_Model {
 	}
 	public function delete($id)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_nota',$id_nota);
 		$this->db->delete('nota');
 	}
-	public function edit($id)
+	public function edit($id_nota)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_nota',$id_nota);
 		return $this->db->get('nota');
 	}
-	public function ubah($id,$data)
+	public function ubah($id_nota,$data)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_nota',$id_nota);
 		$this->db->update('nota', $data);
 	}
 }

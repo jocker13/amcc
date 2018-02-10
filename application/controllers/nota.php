@@ -23,7 +23,7 @@ class Nota extends CI_Controller {
 	public function simpan()
 	{
 		$no_nota=$this->input->post("no_nota");
-		$id=$this->input->post("id");
+		$id_nota=$this->input->post("id_nota");
 		$op=$this->input->post("op");
 		$id_kegiatan=$this->input->post("id_kegiatan");
 		$gambar=$this->input->post("gambar");
@@ -38,24 +38,24 @@ class Nota extends CI_Controller {
 			$this->nota_model->save($data);
 		}
 		else{
-			$this->nota_model->ubah($id, $data);
+			$this->nota_model->ubah($id_nota, $data);
 		}
 
 		redirect('nota');
 	}
-	public function hapus($id)
+	public function hapus($id_nota)
 	{
-		$this->nota_model->delete($id);
+		$this->nota_model->delete($id_nota);
 		redirect('nota');
 	}
 
-	public function edit($id)
+	public function edit($id_nota)
 	{
 		$data = array(
 			"container" => "nota"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->nota_model->edit($id)->result();
+		$data['sql']=$this->nota_model->edit($id_nota)->result();
 		$this->load->view("template", $data);
 	}
 }

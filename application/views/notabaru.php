@@ -1,6 +1,6 @@
 <?php 
 $op;
-$id = "";
+$id_notabaru = "";
 $no_nota ="";
 $tanggal = "";
 $dari = "";
@@ -13,7 +13,7 @@ if ($op=='edit')
 {
   foreach ($sql as $val) {
     $op = "edit";
-    $id = $val->id;
+    $id_notabaru = $val->id_notabaru;
     $no_nota = $val->no_nota;
     $tanggal = $val->tanggal;
     $dari = $val->dari;
@@ -42,7 +42,7 @@ if ($op=='edit')
             <form role="form"  action="<?php echo base_url(); ?>notabaru/simpan" method="POST">
               <div class="form-group">
                 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-                <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+                <input type="hidden" name="id_notabaru" value="<?php echo $id_notabaru ?>" class="form-control">
                 <label>No.Nota</label>
                 <input type="text" name="no_nota" value="<?php echo $no_nota ?>" class="form-control" required>
               </div>
@@ -64,7 +64,7 @@ if ($op=='edit')
              
               <div class="form-group">
                 <label>TERBILANG</label>
-                <input type="text" name="terbilang" value="<?php echo $uang ?>" class="form-control" required>
+                <input type="text" name="terbilang" value="<?php echo $terbilang ?>" class="form-control" required>
               </div>
               <div class="form-group">
                 <label>PENERIMA</label>
@@ -128,8 +128,8 @@ if ($op=='edit')
                    <td><?php echo $notabaru->penerima  ?></td>
                    <td><?php echo $notabaru->no_telp  ?></td>
                    <td><?php echo $notabaru->keterangan  ?></td>
-                   <td><a href="<?php echo base_url();?>notabaru/edit/<?php echo $notabaru->id ?>" class="btn btn-sm btn-warning ">Edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>notabaru/hapus/<?php echo $notabaru->id ?>';}" class="btn btn-sm btn-danger">Hapus</button></td>
+                   <td><a href="<?php echo base_url();?>notabaru/edit/<?php echo $notabaru->id_notabaru ?>" class="btn btn-sm btn-warning ">Edit</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>notabaru/hapus/<?php echo $notabaru->id_notabaru ?>';}" class="btn btn-sm btn-danger">Hapus</button></td>
                     </tr>
                   </tbody>
                   <?php

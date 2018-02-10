@@ -29,7 +29,7 @@ Class Login_model extends CI_Model {
 // Read data using username and password
 	public function login($data) {
 
-		$condition = "NIM =" . "'" . $data['NIM'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+		$condition = "nim =" . "'" . $data['nim'] . "' AND " . "password =" . "'" . $data['password'] . "'";
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->where($condition);
@@ -46,7 +46,7 @@ Class Login_model extends CI_Model {
 // Read data from database to show data in admin page
 	public function read_user_information($username) {
 
-		$condition = "NIM =" . "'" . $username . "'";
+		$condition = "nim =" . "'" . $username . "'";
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->where($condition);

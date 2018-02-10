@@ -61,7 +61,7 @@ Class Login extends CI_Controller {
 // Check for user login process
 	public function user_login_process() {
 
-		$this->form_validation->set_rules('NIM', 'NIM', 'trim|required');
+		$this->form_validation->set_rules('nim', 'nim', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 		if ($this->form_validation->run() == FALSE) {
@@ -72,18 +72,19 @@ Class Login extends CI_Controller {
 			}
 		} else {
 			$data = array(
-				'NIM' => $this->input->post('NIM'),
+				'nim' => $this->input->post('nim'),
 				'password' => $this->input->post('password')
 			);
 			$result = $this->login_model->login($data);
 			
 			if ($result == TRUE) {
 
-				$username = $this->input->post('NIM');
+				$username = $this->input->post('nim');
 				$result = $this->login_model->read_user_information($username);
 				if ($result != false) {
 					$session_data = array(
-						'NIM' => $result[0]->NIM,
+						'id_users' => $result[0]->id_users,
+						'nim' => $result[0]->nim,
 						'email' => $result[0]->email,
 						'nama' => $result[0]->nama,
 						'level'	=> $result[0]->jabatan
@@ -98,7 +99,7 @@ Class Login extends CI_Controller {
 				}
 			} else {
 				$data = array(
-					'error_message' => 'Invalid NIM or Password'
+					'error_message' => 'Invalid nim or Password'
 				);
 				$this->load->view('login', $data);
 			}

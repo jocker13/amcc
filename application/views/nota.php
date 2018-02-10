@@ -1,6 +1,6 @@
 <?php 
     $op;
-    $id = "";
+    $id_nota = "";
     $no_nota ="";
     $nama_kegiatan = "";
     $gambar = "";
@@ -8,7 +8,7 @@ if ($op=='edit')
  {
     foreach ($sql as $val) {
       $op = "edit";
-      $id = $val->id;
+      $id = $val->id_nota;
       $no_nota = $val->no_nota;
       $nama_kegiatan = $val->nama_kegiatan;
       $gambar = $val->gambar;
@@ -31,7 +31,7 @@ if ($op=='edit')
                 <form role="form"  action="<?php echo base_url(); ?>nota/simpan" method="POST">
                     <div class="form-group">
                          <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-                          <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+                          <input type="hidden" name="id_nota" value="<?php echo $id_nota ?>" class="form-control">
                         <label>No. Nota</label>
                         <input type="text" name="no_nota" value="<?php echo $no_nota ?>" class="form-control">
                     </div>
@@ -43,7 +43,7 @@ if ($op=='edit')
                               foreach ($kegiatan as $nama) {
                                 
                               ?>
-                              <option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?>   (<?php echo $nama->tahun_kep; ?>)</option>
+                              <option value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->nama_kegiatan; ?>   (<?php echo $nama->tahun_kep; ?>)</option>
                              
                               <?php 
 
@@ -106,9 +106,9 @@ if ($op=='edit')
                         <td><?php echo $nota->tahun  ?></td>
                         <td><?php echo $nota->gambar  ?></td>
                         <td>
-                           <a href="<?php echo base_url();?>nota/edit/<?php echo $nota->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+                           <a href="<?php echo base_url();?>nota/edit/<?php echo $nota->id_nota ?>" class="btn btn-sm btn-warning ">Edit</a>
 
-                           <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>nota/hapus/<?php echo $nota->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
+                           <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>nota/hapus/<?php echo $nota->id_nota ?>';}" class="btn btn-sm btn-danger">Hapus</button>
                         </td>
                       </tr>
                      </tbody>

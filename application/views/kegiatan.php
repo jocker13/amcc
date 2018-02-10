@@ -1,6 +1,6 @@
 <?php 
 $op;
-$id = "";
+$id_kegiatan = "";
 $tahun_kep ="";
 $nama_kegiatan = "";
 $tanggal = "";
@@ -9,7 +9,7 @@ if ($op=='edit')
 {
   foreach ($sql as $val) {
     $op = "edit";
-    $id = $val->id;
+    $id_kegiatan = $val->id_kegiatan;
     $tahun_kep = $val->tahun_kep;
     $nama_kegiatan = $val->nama_kegiatan;
     $tanggal = $val->tanggal;
@@ -33,7 +33,7 @@ if ($op=='edit')
           
           <div class="form-group">
             <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-            <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+            <input type="hidden" name="id_kegiatan" value="<?php echo $id_kegiatan ?>" class="form-control">
             <label>TAHUN KEPENGURUSAN</label>
             <input type="text" name="tahun_kep" value="<?php echo $tahun_kep ?>" class="form-control" placeholder="2016/2017">
           </div>
@@ -95,8 +95,8 @@ if ($op=='edit')
                   <td><?php echo $kegiatan->nama_kegiatan  ?></td>
                   <td><?php echo $newDate  ?></td>
                   <td>
-                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id ?>" class="btn btn-sm btn-warning ">Edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id ?>';}" class="btn btn-sm btn-danger">Hapus</button></a> 
+                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id_kegiatan ?>" class="btn btn-sm btn-warning ">Edit</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id_kegiatan ?>';}" class="btn btn-sm btn-danger">Hapus</button></a> 
                   </td>
                 </tr>
               </tbody>

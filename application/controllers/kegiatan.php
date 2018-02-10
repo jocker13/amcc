@@ -8,6 +8,7 @@ class Kegiatan extends CI_Controller {
 		parent::__construct();
 		$this->load->model("kegiatan_model");
 		$this->load->helper('url');
+		
 	}
 	public function index()
 	{
@@ -21,14 +22,16 @@ class Kegiatan extends CI_Controller {
 	public function simpan()
 	{
 			$tahun_kep=$this->input->post("tahun_kep");
-			$id=$this->input->post("id");
+			$id_kegiatan=$this->input->post("id_kegiatan");
 			$op=$this->input->post("op");
 			$nama_kegiatan=$this->input->post("nama_kegiatan");
 			$tanggal=$this->input->post("tanggal");
 			$data = array(
 				'tahun_kep' => $tahun_kep, 
 				'nama_kegiatan' => $nama_kegiatan, 
-				'tanggal' => $tanggal
+				'tanggal' => $tanggal,
+				'id_users' => $this->session->userdata['logged_in']['id_users']
+
 			);
 			// echo $op;
 			// exit();
@@ -36,23 +39,23 @@ class Kegiatan extends CI_Controller {
 				$this->kegiatan_model->save($data);
 			}
 			else{
-				$this->kegiatan_model->ubah($id, $data);
+				$this->kegiatan_model->ubah($id_kegiatan, $data);
 			}
 			
 			redirect('kegiatan');
 	}
-	public function hapus($id)
+	public function hapus($id_kegiatan)
 	{
-			$this->kegiatan_model->delete($id);
+			$this->kegiatan_model->delete($id_kegiatan);
 			redirect('kegiatan');
 	}
-	public function edit($id)
+	public function edit($id_kegiatan)
 	{
 			$data = array(
 				"container" => "kegiatan"
 			);
 			$data['op']='edit';
-			$data['sql']=$this->kegiatan_model->edit($id)->result();
+			$data['sql']=$this->kegiatan_model->edit($id_kegiatan)->result();
 			$this->load->view("template", $data);
 	}
 }

@@ -13,19 +13,19 @@ class notabaru_model extends CI_Model {
 	{
 		$this->db->insert('notabaru',$data);
 	}
-	public function delete($id)
+	public function delete($id_notabaru)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_notabaru',$id_notabaru);
 		$this->db->delete('notabaru');
 	}
-	public function edit($id)
+	public function edit($id_notabaru)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_notabaru',$id_notabaru);
 		return $this->db->get('notabaru');
 	}
-	public function ubah($id,$data)
+	public function ubah($id_notabaru,$data)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_notabaru',$id_notabaru);
 		$this->db->update('notabaru', $data);
 	}
 }

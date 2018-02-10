@@ -11,7 +11,7 @@ class transaksiumum_model extends CI_Model {
 	}
 	public function getSaldoakhir()
 	{
-		$sql =$this->db->query("select saldo from transaksiumum where id=(select max(id)from transaksiumum)");
+		$sql =$this->db->query("select saldo from transaksiumum where id_tran=(select max(id_tran)from transaksiumum)");
 		$ret = $sql->row();
 		return $ret->saldo;
 	}
@@ -19,19 +19,19 @@ class transaksiumum_model extends CI_Model {
 	{
 		$this->db->insert('transaksiumum',$data);
 	}
-	public function delete($id)
+	public function delete($id_tran)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_tran',$id_tran);
 		$this->db->delete('transaksiumum');
 	}
-	public function edit($id)
+	public function edit($id_tran)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_tran',$id_tran);
 		return $this->db->get('transaksiumum');
 	}
-	public function ubah($id,$data)
+	public function ubah($id_tran,$data)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_tran',$id_tran);
 		$this->db->update('transaksiumum', $data);
 	}
 }

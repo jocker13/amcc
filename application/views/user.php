@@ -1,23 +1,23 @@
 <?php 
 $op;
-$id = "";
+$id_users = "";
 $nim ="";
 $nama = "";
 $jabatan = "";
 $email = "";
 $password = "";
-$no_telp = "";
+$notelp = "";
 if ($op=='edit')
 {
   foreach ($sql as $val) {
     $op = "edit";
-    $id = $val->id;
-    $nim = $val->NIM;
+    $id_users = $val->id_users;
+    $nim = $val->nim;
     $nama = $val->nama;
     $jabatan = $val->jabatan;
     $email = $val->email;
     $password = $val->password;
-    $no_telp = $val->no_telp;
+    $notelp = $val->notelp;
   }
 }
 ?>
@@ -39,7 +39,7 @@ if ($op=='edit')
           <form role="form"  action="<?php echo base_url(); ?>User/simpan" method="POST">
             <div class="form-group">
               <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-              <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+              <input type="hidden" name="id_users" value="<?php echo $id_users ?>" class="form-control">
               <label>NIM</label>
               <input type="text" name="nim" value="<?php echo $nim ?>" class="form-control" required>
             </div>
@@ -49,10 +49,11 @@ if ($op=='edit')
             </div>
             <div class="form-group">
               <label>Jabatan</label>
-              <select class="form-control" name="jabatan"  selected="<?php echo $nama ?>" >
+              <select class="form-control" name="jabatan"  selected="<?php echo $jabatan ?>" >
+                <option value="">Pilih Jabatan</option>
                 <option value="admin">Admin</option>
                 <option value="ketua">Ketua</option>
-                <option value="user">Users</option>
+                <option value="users">Users</option>
               </select>
             </div>
           </div>
@@ -67,7 +68,7 @@ if ($op=='edit')
             </div>
             <div class="form-group">
               <label>Nomor Telp</label>
-              <input type="text" name="notelp"  value="<?php echo $no_telp ?>" class="form-control">
+              <input type="text" name="notelp"  value="<?php echo $notelp ?>" class="form-control">
             </div>
             <div class="form-group" align="right">
               <button type="submit" class="btn btn-primary">Simpan</button>
@@ -117,15 +118,15 @@ if ($op=='edit')
                   ?>
                   <tbody>
                     <tr>
-                      <td><?php echo $user->NIM  ?> </td>
+                      <td><?php echo $user->nim  ?> </td>
                       <td><?php echo $user->nama ?> </td>
                       <td><?php echo $user->jabatan ?> </td>
                       <td><?php echo $user->email ?> </td>
-                      <td><?php echo $user->no_telp ?> </td>
+                      <td><?php echo $user->notelp ?> </td>
                       
                       <td>
-                        <a href="<?php echo base_url();?>User/edit/<?php echo $user->id ?>" class="btn btn-sm btn-warning ">Edit</a>
-                        <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id ?>';}" class="btn btn-sm btn-danger">Hapus</button> </td>
+                        <a href="<?php echo base_url();?>User/edit/<?php echo $user->id_users ?>" class="btn btn-sm btn-warning ">Edit</a>
+                        <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id_users ?>';}" class="btn btn-sm btn-danger">Hapus</button> </td>
                         </tr>
                       </tbody>
                       <?php

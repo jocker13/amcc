@@ -18,19 +18,19 @@ class kegiatan_model extends CI_Model {
 	{
 		$this->db->insert('kegiatan',$data);
 	}
-	public function delete($id)
+	public function delete($id_kegiatan)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_kegiatan',$id_kegiatan);
 		$this->db->delete('kegiatan');
 	}
-	public function edit($id)
+	public function edit($id_kegiatan)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_kegiatan',$id_kegiatan);
 		return $this->db->get('kegiatan');
 	}
-	public function ubah($id,$data)
+	public function ubah($id_kegiatan,$data)
 	{
-		$this->db->where('id',$id);
+		$this->db->where('id_kegiatan',$id_kegiatan);
 		$this->db->update('kegiatan', $data);
 	}
 }

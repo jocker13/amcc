@@ -21,9 +21,6 @@ class TransaksiUmum extends CI_Controller {
 	public function simpan()
 	{	
 		$da=$this->transaksiumum_model->getSaldoakhir();
-
-		// echo($da);
-		// exit();
 		if ($this->input->post("jenis")=="Pemasukan") {
 			$saldo1 =$da+$this->input->post("jumlah");
 		}
@@ -31,17 +28,25 @@ class TransaksiUmum extends CI_Controller {
 			$saldo1 =$da-$this->input->post("jumlah");
 		} 
 		$nama_transaksi=$this->input->post("nama_transaksi");
-		$id=$this->input->post("id");
+		$id_tran=$this->input->post("id_tran");
 		$op=$this->input->post("op");
 		$tanggal=$this->input->post("tanggal");
 		$jenis=$this->input->post("jenis");
-		$jumlah=$this->input->post("jumlah");
+		$nama_sie=$this->input->post("nama_sie");
+		$harga_satuan=$this->input->post("harga_satuan");
+		$banyak=$this->input->post("banyak");
+		/*$jumlah=$this->input->post("jumlah");*/
+		$no_nota=$this->input->post("no_nota");
 		$saldo=$saldo1;
 		$data = array(
 			'nama_transaksi' => $nama_transaksi , 
 			'tanggal' => $tanggal,
-			'jenis' => $jenis, 
-			'jumlah' => $jumlah, 
+			'jenis' => $jenis,  
+			'banyak' => $banyak, 
+			'nama_sie' => $banyak, 
+			'harga_satuan' => $harga_satuan, 
+			/*'jumlah' => $jumlah, */
+			'no_nota' => $no_nota, 
 			'saldo' => $saldo 
 		);
 		// echo $op;
@@ -50,24 +55,24 @@ class TransaksiUmum extends CI_Controller {
 			$this->transaksiumum_model->save($data);
 		}
 		else{
-			$this->transaksiumum_model->ubah($id, $data);
+			$this->transaksiumum_model->ubah($id_tran, $data);
 		}
 
 		redirect('transaksiumum');
 	}
-	public function hapus($id)
+	public function hapus($id_tran)
 	{
-		$this->transaksiumum_model->delete($id);
+		$this->transaksiumum_model->delete($id_tran);
 		redirect('transaksiumum');
 	}
 
-	public function edit($id)
+	public function edit($id_tran)
 	{
 		$data = array(
 			"container" => "transaksiumum"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->transaksiumum_model->edit($id)->result();
+		$data['sql']=$this->transaksiumum_model->edit($id_tran)->result();
 		$this->load->view("template", $data);
 	}
 }

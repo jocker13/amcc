@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <?php
 if (isset($this->session->userdata['logged_in'])) {
-	$NIM = ($this->session->userdata['logged_in']['NIM']);
+	$nim = ($this->session->userdata['logged_in']['nim']);
 	$nama = ($this->session->userdata['logged_in']['nama']);
 	$email = ($this->session->userdata['logged_in']['email']);
 	$level = ($this->session->userdata['logged_in']['level']);
@@ -102,7 +102,7 @@ if (isset($this->session->userdata['logged_in'])) {
 					</div>
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-name"><?php echo $nama;  ?></div>
-						<div class="profile-usertitle-status"><span class="indicator label-success"></span><?php echo $NIM;  ?></div>
+						<div class="profile-usertitle-status"><span class="indicator label-success"></span><?php echo $nim;  ?></div>
 					</div>
 					<div class="clear"></div>
 				</div>
