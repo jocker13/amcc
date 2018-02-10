@@ -59,10 +59,10 @@ if ($op=='edit')
                               <div class="input-group">
                                   <span class="input-group-btn">
                                       <span class="btn btn-default btn-file">
-                                          Browse… <input type="file" id="imgInp" value="">
+                                          Browse… <input type="file" name="input_gambar" id="imgInp" value="">
                                       </span>
                                   </span>
-                                  <input type="text" class="form-control" readonly>
+                                  <input type="text" class="form-control" readonly >
                               </div>
                               <img id='img-upload'/>
                           </div>

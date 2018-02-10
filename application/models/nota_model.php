@@ -11,6 +11,17 @@ class nota_model extends CI_Model {
 	}
 	public function save($data)
 	{
+
+		$no_nota=$this->input->post("no_nota");
+		$id_nota=$this->input->post("id_nota");
+		$op=$this->input->post("op");
+		$id_kegiatan=$this->input->post("id_kegiatan");
+		$gambar=$this->input->post("gambar");
+		$data = array(
+			'no_nota' => $no_nota , 
+			'id_kegiatan' => $id_kegiatan, 
+			'gambar' => $upload['file']['file_name'],
+		);
 		$this->db->insert('nota',$data);
 	}
 	public function delete($id)
@@ -28,4 +39,23 @@ class nota_model extends CI_Model {
 		$this->db->where('id_nota',$id_nota);
 		$this->db->update('nota', $data);
 	}
-}
+	public function upload(){  
+
+		$config['upload_path'] = './images/';   
+		$config['allowed_types'] = 'jpg|png|jpeg';  
+		$config['max_size']  = '2048';  
+		$config['remove_space'] = TRUE; 
+
+	     $this->load->library('upload', $config);
+	      echo "aaaaaaaaaaaaaa";
+	     exit(); // Load konfigurasi uploadnya   
+	     if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil      // Jika berhasil :  
+
+	     	$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');   
+	     	return $return;  
+	     }else{      // Jika gagal :   
+	     	$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());    
+	     	return $return;   
+	     }
+	 }
+	}

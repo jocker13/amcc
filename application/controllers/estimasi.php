@@ -23,7 +23,7 @@ class Estimasi extends CI_Controller {
 	public function simpan()
 	{
 		$jenis=$this->input->post("jenis");
-		$id=$this->input->post("id");
+		$id_estimasi=$this->input->post("id_estimasi");
 		$op=$this->input->post("op");
 		$nama_sie=$this->input->post("nama_sie");
 		$nama_estimasi=$this->input->post("nama_estimasi");
@@ -44,23 +44,23 @@ class Estimasi extends CI_Controller {
 			$this->estimasi_model->save($data);
 		}
 		else{
-			$this->estimasi_model->ubah($id, $data);
+			$this->estimasi_model->ubah($id_estimasi, $data);
 		}
 
 		redirect('estimasi');
 	}
-	public function hapus($id)
+	public function hapus($id_estimasi)
 	{
-		$this->estimasi_model->delete($id);
+		$this->estimasi_model->delete($id_estimasi);
 		redirect('estimasi');
 	}
-	public function edit($id)
+	public function edit($id_estimasi)
 	{
 		$data = array(
 			"container" => "estimasi"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->estimasi_model->edit($id)->result();
+		$data['sql']=$this->estimasi_model->edit($id_estimasi)->result();
 		$this->load->view("template", $data);
 	}
 }

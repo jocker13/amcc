@@ -23,7 +23,7 @@ public function __construct(){
 	public function simpan()
 	{
 		$jenis=$this->input->post("jenis");
-		$id=$this->input->post("id");
+		$id_realisasi=$this->input->post("id_realisasi");
 		$op=$this->input->post("op");
 		$nama_sie=$this->input->post("nama_sie");
 		$nama_realisasi=$this->input->post("nama_realisasi");
@@ -46,23 +46,23 @@ public function __construct(){
 			$this->realisasi_model->save($data);
 		}
 		else{
-			$this->realisasi_model->ubah($id, $data);
+			$this->realisasi_model->ubah($id_realisasi, $data);
 		}
 
 		redirect('realisasi');
 	}
-	public function hapus($id)
+	public function hapus($id_realisasi)
 	{
-		$this->realisasi_model->delete($id);
+		$this->realisasi_model->delete($id_realisasi);
 		redirect('realisasi');
 	}
-	public function edit($id)
+	public function edit($id_realisasi)
 	{
 		$data = array(
 			"container" => "realisasi"
 		);
 		$data['op']='edit';
-		$data['sql']=$this->realisasi_model->edit($id)->result();
+		$data['sql']=$this->realisasi_model->edit($id_realisasi)->result();
 		$this->load->view("template", $data);
 	}
 
@@ -75,7 +75,7 @@ public function __construct(){
 			$kegiatan_select ='';
 			$kegiatan_select .='<option value="">Pilih Kegiatan</option>' ;
 			foreach ($kegiatan as $value) {
-				$kegiatan_select .='<option value="'.$value->id .'">'.$value->nama_kegiatan.'</option>';
+				$kegiatan_select .='<option value="'.$value->id_realisasi .'">'.$value->nama_kegiatan.'</option>';
 			}
 			echo json_encode($kegiatan_select);
 		}

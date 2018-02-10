@@ -1,6 +1,6 @@
 <?php 
     $op;
-    $id = "";
+    $id_realisasi = "";
     $jenis = "";
     $nama_sie = "";
     $nama_realisasi ="";
@@ -13,7 +13,7 @@ if ($op=='edit')
  {
     foreach ($sql as $val) {
       $op = "edit";                                                                                                           
-      $id = $val->id;
+      $id_realisasi = $val->id_realisasi;
       $jenis = $val->jenis;
       $nama_sie = $val->nama_sie;
       $nama_realisasi = $val->nama_realisasi;
@@ -130,8 +130,8 @@ if ($op=='edit')
 						<td><?php echo $jml  ?></td>
 						<td><?php echo $no_nota  ?></td>
 						<td align ="center">
-							<a href="<?php echo base_url();?>realisasi/edit/<?php echo $val->id ?>" class="btn btn-sm btn-warning ">Edit</a>
-							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>realisasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
+							<a href="<?php echo base_url();?>realisasi/edit/<?php echo $val->id_realisasi ?>" class="btn btn-sm btn-warning ">Edit</a>
+							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>realisasi/hapus/<?php echo $val->id_realisasi ?>';}" class="btn btn-sm btn-danger">Hapus</button>
 							</td>
 						</tr>
 					</tbody>

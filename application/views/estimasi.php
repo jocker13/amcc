@@ -1,6 +1,6 @@
 <?php 
     $op;
-    $id = "";
+    $id_estimasi = "";
     $jenis = "";
     $nama_sie = "";
     $nama_estimasi ="";
@@ -12,7 +12,7 @@ if ($op=='edit')
  {
     foreach ($sql as $val) {
       $op = "edit";                                                                                                           
-      $id = $val->id;
+      $id_estimasi = $val->id_estimasi;
       $jenis = $val->jenis;
       $nama_sie = $val->nama_sie;
       $nama_estimasi = $val->nama_estimasi;
@@ -45,7 +45,7 @@ if ($op=='edit')
 									foreach ($kegiatan as $nama) {
 
 										?>
-										<option value="<?php echo $nama->id ?>" ><?php echo $nama->tahun_kep; ?></option>
+										<option value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->tahun_kep; ?></option>
 
 										<?php 
 
@@ -66,7 +66,7 @@ if ($op=='edit')
 									foreach ($kegiatan as $nama) {
 
 										?>
-										<option value="<?php echo $nama->id ?>" ><?php echo $nama->nama_kegiatan; ?></option>
+										<option value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->nama_kegiatan; ?></option>
 
 										<?php 
 
@@ -135,7 +135,7 @@ if ($op=='edit')
 						<td>Rp <?php echo number_format($val->harga_satuan,2,',','.')?></td>
 						<td>Rp <?php echo number_format($jumlah,2,',','.')?></td>
 						<td align ="center">
-							<a href="<?php echo base_url();?>estimasi/edit/<?php echo $val->id ?>" class="btn btn-sm btn-warning ">Edit</a>
+							<a href="<?php echo base_url();?>estimasi/edit/<?php echo $val->id_estimasi ?>" class="btn btn-sm btn-warning ">Edit</a>
 							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
 							</td>
 						</tr>
@@ -167,7 +167,7 @@ if ($op=='edit')
 
 					 <div class="form-group">
 		          	 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
-                     <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control">
+                     <input type="hidden" name="id_estimasi" value="<?php echo $id_estimasi ?>" class="form-control">
 					<div class="form-group">
 						<label>NAMA KEGIATAN</label>
 					</div>
