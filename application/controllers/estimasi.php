@@ -12,18 +12,30 @@ class Estimasi extends CI_Controller {
 
 	public function index()
 	{
+		$tahun  = $this->input->post('tahun');
+		$kegiatan  = $this->input->post('kegiatan');
 		$data = array(
 			"container" => "estimasi"
 		);
 		$data['op']='tambah';
-		$data['sql']=$this->estimasi_model->getEstimasi()->result();
-		$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();
+		$data['sql']=$this->estimasi_model->getEstimasis($tahun,$kegiatan)->result();
+		//print_r($data['sql']);
+		//echo $tahun." ".$kegiatan;
+		//exit();
+		$id_users = $this->session->userdata()['logged_in']['id_users'];
+		
+		$data['kegiatan']=$this->kegiatan_model->getKegiatanestimasi($id_users)->result();
+/*		print_r($data['kegiatan']);
+		exit();*/
 		$this->load->view("template", $data);
 	}
 	public function simpan()
 	{
+		/*echo "tested";
+		exit();*/
 		$jenis=$this->input->post("jenis");
 		$id_estimasi=$this->input->post("id_estimasi");
+		$id_kegiatan=$this->input->post("id_kegiatan");
 		$op=$this->input->post("op");
 		$nama_sie=$this->input->post("nama_sie");
 		$nama_estimasi=$this->input->post("nama_estimasi");
@@ -31,6 +43,7 @@ class Estimasi extends CI_Controller {
 		$harga_satuan=$this->input->post("harga_satuan");
 		$jumlah=$this->input->post("jumlah");
 		$data = array(
+			'id_kegiatan' => $id_kegiatan, 
 			'jenis'=> $jenis,
 			'nama_sie' => $nama_sie, 
 			'nama_estimasi' => $nama_estimasi, 

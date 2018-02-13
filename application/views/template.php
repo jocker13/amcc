@@ -113,14 +113,14 @@ if (isset($this->session->userdata['logged_in'])) {
 					<?php if($level == 'admin'): ?>
 					<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
 					<?php endif; ?>
-					<?php if($level == 'admin' || $level == 'user'): ?>
+					<?php if($level == 'admin' || $level == 'users'): ?>
 					<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
 					<?php endif; ?>
-					<?php if($level == 'admin' || $level == 'user'): ?>
+					<?php if($level == 'admin' || $level == 'users'): ?>
 					<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
 					<?php endif; ?>
 
-					<?php if($level == 'admin' || $level == 'user'): ?>
+					<?php if($level == 'admin' || $level == 'users'): ?>
 					<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin'): ?>
@@ -129,7 +129,7 @@ if (isset($this->session->userdata['logged_in'])) {
 						<?php if($level == 'admin'): ?>
 					<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
 					<?php endif; ?>
-					<?php if($level == 'admin' || $level == 'user'): ?>
+					<?php if($level == 'admin' || $level == 'users'): ?>
 					<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
 						<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
@@ -162,7 +162,7 @@ if (isset($this->session->userdata['logged_in'])) {
 							<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
 						</a></li>
 						<?php endif; ?>
-						 <?php if($level == 'admin' || $level == 'user'): ?>
+						 <?php if($level == 'admin' || $level == 'users'): ?>
 						<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Cetak Nota Baru
 						</a></li>
@@ -209,6 +209,14 @@ if (isset($this->session->userdata['logged_in'])) {
 		<script src="<?php echo base_url('assets/js/easypiechart-data.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+		<script type="text/javascript">
+$('#tambah').on('click', function() {
+  var data = $("#id_kegiatan").val();
+    console.log(data);
+    $("#model-kegiatan").val(data);
+})
+</script>
+
 		<!-- <script>
 			window.onload = function () {
 				var chart1 = document.getElementById("line-chart").getContext("2d");

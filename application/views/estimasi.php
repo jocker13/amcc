@@ -36,22 +36,14 @@ if ($op=='edit')
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-4">
-						<form role="form"  action="<?php echo base_url(); ?>estimasi/tampilkan" method="POST">
+						<form role="form"  action="<?php echo base_url(); ?>estimasi/index" method="POST">
 							<div class="form-group">
 								<label>Tahun Kepengurusan</label>
 
-								<select class="form-control" name="id_kegiatan" >
-									<?php 
-									foreach ($kegiatan as $nama) {
+								<select class="form-control" name="tahun" >
 
-										?>
-										<option value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->tahun_kep; ?></option>
-
-										<?php 
-
-									}
-									?>
-
+										<option value="2016/2017" >2016/2017</option>
+										<option value="2015/2016" >2015/2016</option>
 								</select>
 							</div>
 
@@ -61,12 +53,13 @@ if ($op=='edit')
 							<div class="form-group">
 								<label>NAMA KEGIATAN</label>
 
-								<select class="form-control" name="id_kegiatan" >
+								<select class="form-control" id="id_kegiatan" name="kegiatan" >
+									<option value="" >kegiatan</option>
 									<?php 
 									foreach ($kegiatan as $nama) {
 
 										?>
-										<option value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->nama_kegiatan; ?></option>
+										<option   value="<?php echo $nama->id_kegiatan ?>" ><?php echo $nama->nama_kegiatan; ?></option>
 
 										<?php 
 
@@ -102,7 +95,8 @@ if ($op=='edit')
               </div>
             </div>
           </form>
-			<div class="panel-heading" align="right"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a>
+			<div class="panel-heading" align="right">
+				<button class="btn btn-primary"  id="tambah" data-toggle="modal" data-target="#exampleModal"> TAMBAH </button>
 			</div>
 
 			<div class="panel-body">
@@ -136,7 +130,7 @@ if ($op=='edit')
 						<td>Rp <?php echo number_format($jumlah,2,',','.')?></td>
 						<td align ="center">
 							<a href="<?php echo base_url();?>estimasi/edit/<?php echo $val->id_estimasi ?>" class="btn btn-sm btn-warning ">Edit</a>
-							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val->id ?>';}" class="btn btn-sm btn-danger">Hapus</button>
+							<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val->id_estimasi ?>';}" class="btn btn-sm btn-danger">Hapus</button>
 							</td>
 						</tr>
 					</tbody>
@@ -166,6 +160,7 @@ if ($op=='edit')
 				<form role="form"  action="<?php echo base_url(); ?>estimasi/simpan" method="POST">
 
 					 <div class="form-group">
+					  <input type="hidden" name="id_kegiatan" id="model-kegiatan" value="" class="form-control">
 		          	 <input type="hidden" name="op" value="<?php echo $op ?>" class="form-control">
                      <input type="hidden" name="id_estimasi" value="<?php echo $id_estimasi ?>" class="form-control">
 					<div class="form-group">
