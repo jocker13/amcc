@@ -111,37 +111,37 @@ if (isset($this->session->userdata['logged_in'])) {
 				<ul class="nav menu">
 					
 					<?php if($level == 'admin'): ?>
-					<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
+						<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-					<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
+						<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-					<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
+						<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
 					<?php endif; ?>
 
 					<?php if($level == 'admin' || $level == 'users'): ?>
-					<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
+						<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin'): ?>
-					<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
+						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
 					<?php endif; ?>
-						<?php if($level == 'admin'): ?>
-					<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
+					<?php if($level == 'admin'): ?>
+						<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-					<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-						<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-					</a>
-					<ul class="children collapse" id="sub-item-1">
-						<li><a class="" href="<?php echo base_url('/nota') ?>">
-							<span class="fa fa-arrow-right">&nbsp;</span> Nota Kegiatan
-						</a></li>
-						<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
-							<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
-						</a></li>
-					</ul>
-				    <?php endif; ?>
+						<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+							<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+						</a>
+						<ul class="children collapse" id="sub-item-1">
+							<li><a class="" href="<?php echo base_url('/nota') ?>">
+								<span class="fa fa-arrow-right">&nbsp;</span> Nota Kegiatan
+							</a></li>
+							<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
+								<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
+							</a></li>
+						</ul>
+					<?php endif; ?>
 					<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
 						<em class="fa fa-navicon">&nbsp;</em> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
@@ -152,20 +152,20 @@ if (isset($this->session->userdata['logged_in'])) {
 						<li><a class="" href=" <?php echo base_url('/laporan_realisasi') ?>">
 							<span class="fa fa-arrow-right">&nbsp;</span> Realisasi
 						</a></li>
-							<?php if($level == 'admin' || $level == 'ketua'): ?>
-						<li><a class="" href="<?php echo base_url('/laporan_tranumum') ?>">
-							<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
-						</a></li>
-						 <?php endif; ?>
-						 <?php if($level == 'admin' || $level == 'ketua'): ?>
-						<li><a class="" href=" <?php echo base_url('/detailtransaksi') ?>">
-							<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
-						</a></li>
+						<?php if($level == 'admin' || $level == 'ketua'): ?>
+							<li><a class="" href="<?php echo base_url('/laporan_tranumum') ?>">
+								<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
+							</a></li>
 						<?php endif; ?>
-						 <?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
-							<span class="fa fa-arrow-right">&nbsp;</span> Cetak Nota Baru
-						</a></li>
+						<?php if($level == 'admin' || $level == 'ketua'): ?>
+							<li><a class="" href=" <?php echo base_url('/detailtransaksi') ?>">
+								<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
+							</a></li>
+						<?php endif; ?>
+						<?php if($level == 'admin' || $level == 'users'): ?>
+							<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
+								<span class="fa fa-arrow-right">&nbsp;</span> Cetak Nota Baru
+							</a></li>
 						<?php endif; ?>
 					</ul>
 
@@ -210,12 +210,17 @@ if (isset($this->session->userdata['logged_in'])) {
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
 		<script type="text/javascript">
-$('#tambah').on('click', function() {
-  var data = $("#id_kegiatan").val();
-    console.log(data);
-    $("#model-kegiatan").val(data);
-})
-</script>
+			$('#tambah').on('click', function() {
+				var data = $("#id_kegiatan").val();
+				console.log(data);
+				$("#model-kegiatan").val(data);
+			});
+			// $('#id_kegiatan').change(function(){
+			// 	var data = $("#id_kegiatan").val();
+			// 	console.log(data);
+			// 	$("#model-kegiatan").val(data);
+			// });
+		</script>
 
 		<!-- <script>
 			window.onload = function () {

@@ -9,6 +9,11 @@ class kegiatan_model extends CI_Model {
 		$sql =$this->db->query("select * from kegiatan");
 		return $sql;
 	}
+	public function getKegiatanByID($id_kegiatan="")
+	{
+		$sql =$this->db->query("select nama_kegiatan from kegiatan where id_kegiatan='$id_kegiatan'");
+		return $sql;
+	}
 	public function getKegiatanestimasi($id_users)
 	{
 		$sql =$this->db->query("select * from kegiatan where id_users = $id_users" );

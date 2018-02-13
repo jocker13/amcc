@@ -9,9 +9,9 @@ class estimasi_model extends CI_Model {
 		$sql =$this->db->query("select e.*, k.nama_kegiatan from estimasi e join kegiatan k on e.id_kegiatan = k.id_kegiatan");
 		return $sql;
 	}
-	public function getEstimasis($tahun="",$kegiatan="")
+	public function getEstimasis($kegiatan="")
 	{
-		$sql =$this->db->query("select e.*, k.nama_kegiatan from estimasi e join kegiatan k on e.id_kegiatan = k.id_kegiatan where k.tahun_kep = '$tahun' AND e.id_kegiatan = '$kegiatan'");
+		$sql =$this->db->query("select e.*, k.nama_kegiatan from estimasi e join kegiatan k on e.id_kegiatan = k.id_kegiatan where  e.id_kegiatan = '$kegiatan'");
 	
 		return $sql;
 	}

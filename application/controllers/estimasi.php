@@ -18,15 +18,11 @@ class Estimasi extends CI_Controller {
 			"container" => "estimasi"
 		);
 		$data['op']='tambah';
-		$data['sql']=$this->estimasi_model->getEstimasis($tahun,$kegiatan)->result();
-		//print_r($data['sql']);
-		//echo $tahun." ".$kegiatan;
-		//exit();
+		$data['kegiatan_id']=$kegiatan; 
+		$data['nama_kegiatan']=$this->kegiatan_model->getKegiatanByID($kegiatan)->result();
+		$data['sql']=$this->estimasi_model->getEstimasis($kegiatan)->result();
 		$id_users = $this->session->userdata()['logged_in']['id_users'];
-		
 		$data['kegiatan']=$this->kegiatan_model->getKegiatanestimasi($id_users)->result();
-/*		print_r($data['kegiatan']);
-		exit();*/
 		$this->load->view("template", $data);
 	}
 	public function simpan()
