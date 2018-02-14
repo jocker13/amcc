@@ -209,7 +209,27 @@ if (isset($this->session->userdata['logged_in'])) {
 		<script src="<?php echo base_url('assets/js/easypiechart-data.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+
+
+
 		<script type="text/javascript">
+		$(document).ready(function() {
+        // Untuk sunting
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal= $(this)
+            console.log(div.data('jenis'));
+            // Isi nilai pada field
+            modal.find('#id_estimasi').attr("value",div.data('id'));
+            modal.find('#nama_estimasi').attr("value",div.data('estimasi'));
+            modal.find('#banyak').attr("value",div.data('banyak'));
+            modal.find('#harga_satuan').attr("value",div.data('harga'));
+            modal.find('#op').attr("value",div.data('op'));
+       		 });
+   		});
+
+
+
 			$('#tambah').on('click', function() {
 				var data = $("#id_kegiatan").val();
 				console.log(data);
