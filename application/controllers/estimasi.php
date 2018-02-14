@@ -20,7 +20,7 @@ class Estimasi extends CI_Controller {
 		$data['op']='tambah';
 		$data['kegiatan_id']=$kegiatan; 
 		$data['nama_kegiatan']=$this->kegiatan_model->getKegiatanByID($kegiatan)->result();
-		$data['sql']=$this->estimasi_model->getEstimasis($kegiatan)->result();
+		$data['sql']=$this->estimasi_model->getEstimasis($kegiatan);
 		$id_users = $this->session->userdata()['logged_in']['id_users'];
 		$data['kegiatan']=$this->kegiatan_model->getKegiatanestimasi($id_users)->result();
 		$this->load->view("template", $data);
@@ -45,7 +45,7 @@ class Estimasi extends CI_Controller {
 			'nama_estimasi' => $nama_estimasi, 
 			'banyak' => $banyak,
 			'harga_satuan' => $harga_satuan,
-	
+
 		);
 			// echo $op;
 			// exit();
@@ -53,7 +53,7 @@ class Estimasi extends CI_Controller {
 			$this->estimasi_model->save($data);
 		}
 		else{
-			$this->estimasi_model->ubah($id_estimasi, $data);
+			$this->estimasi_model->edit($id_estimasi, $data);
 		}
 
 		redirect('estimasi');
@@ -71,5 +71,19 @@ class Estimasi extends CI_Controller {
 		$data['op']='edit';
 		$data['sql']=$this->estimasi_model->edit($id_estimasi)->result();
 		$this->load->view("template", $data);
+	}
+	function ubah(){
+		$id = $this->input->post('id');
+		$data = array(
+			'id_kegiatan' => $id_kegiatan, 
+			'jenis'=> $jenis,
+			'nama_sie' => $nama_sie, 
+			'nama_estimasi' => $nama_estimasi, 
+			'banyak' => $banyak,
+			'harga_satuan' => $harga_satuan,
+		);
+		$this->model_admin->ubah($data,$id);
+		$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('admin');
 	}
 }
