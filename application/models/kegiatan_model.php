@@ -19,6 +19,11 @@ class kegiatan_model extends CI_Model {
 		$sql =$this->db->query("select * from kegiatan where id_users = $id_users" );
 		return $sql;
 	}
+	public function getKegiatanNota($id_users)
+	{
+		$sql =$this->db->query("select * from kegiatan where id_users = $id_users" );
+		return $sql;
+	}
 	public function getKegiatanBytahun($tahun_kep)
 	{
 		$this->db->where('tahun_kep',$tahun_kep);

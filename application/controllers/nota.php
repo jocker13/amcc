@@ -12,16 +12,24 @@ class Nota extends CI_Controller {
 
 	public function index()
 	{
+		$kegiatan  = $this->input->post('kegiatan');
 		$data = array(
 			"container" => "nota"
 		);
 		$data['op']='tambah';
+		$data['kegiatan_id']=$kegiatan; 
+		$data['nama_kegiatan']=$this->kegiatan_model->getKegiatanByID($kegiatan)->result();
 		$data['sql']=$this->nota_model->getnota()->result();
-		$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();
+		$data['sql']=$this->nota_model->getNotaKegiatan($kegiatan)->result();
+		$id_users = $this->session->userdata()['logged_in']['id_users'];
+		$data['kegiatan']=$this->kegiatan_model->getKegiatanNota($id_users)->result();
+		/*$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();*/
 		$this->load->view("template", $data);
 	}
 	public function simpan()
 	{
+		echo "tested";
+		exit();
 		$data = array();
     
     if($op='tambah'){ // Jika user menekan tombol Submit (Simpan) pada form

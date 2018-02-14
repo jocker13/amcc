@@ -57,7 +57,7 @@ if ($op=='edit')
 									<label>NAMA KEGIATAN</label>
 
 									<select class="form-control" id="id_kegiatan" name="kegiatan" >
-										<option value="" >kegiatan</option>
+										<option value="" >-- pilih kegiatan --</option>
 										<?php 
 										foreach ($kegiatan as $nama) {
 

@@ -9,6 +9,12 @@ class nota_model extends CI_Model {
 		$sql =$this->db->query("select n.*, k.nama_kegiatan as nama_kegiatan, k.tahun_kep as tahun from nota n join kegiatan k on n.id_kegiatan = k.id_kegiatan");
 		return $sql;
 	}
+	public function getNotaKegiatan($kegiatan="")
+	{
+		$sql =$this->db->query("select n.*, k.nama_kegiatan from nota n join kegiatan k on n.id_kegiatan = k.id_kegiatan where  n.id_kegiatan = '$kegiatan'");
+	
+		return $sql;
+	}
 	public function save($data)
 	{
 
