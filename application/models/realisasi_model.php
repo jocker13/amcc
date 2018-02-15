@@ -9,6 +9,12 @@ class realisasi_model extends CI_Model {
 		$sql =$this->db->query("select r.*, e.nama_estimasi from realisasi r  join estimasi e on r.id_estimasi = e.id_estimasi");
 		return $sql;
 	}
+		public function getRealisasiKegiatan($kegiatan="")
+	{
+		$sql =$this->db->query("select e.*, k.nama_kegiatan from estimasi e join kegiatan k on e.id_kegiatan = k.id_kegiatan where  e.id_kegiatan = '$kegiatan'");
+
+		return $sql->result_array();;
+	}
 	public function save($data)
 	{
 		$this->db->insert('realisasi',$data);

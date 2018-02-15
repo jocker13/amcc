@@ -242,22 +242,21 @@
 					</div>					
 					<div class="form-group">
 						<label for="nama_realisasi-name" class="form-control-label">Nama Transaksi</label>
-						<input type="text" name="nama_realisasi" value="<?php echo $nama_realisasi ?>" class="form-control" id="recipient-name" required>
+						<input type="text" name="nama_realisasi"  class="form-control" id="recipient-name" required>
 					</div>
 
 					<div class="form-group">
 						<label for="banyak-name" class="form-control-label">Banyak</label>
-						<input type="text" name="banyak" value="<?php echo $banyak?>" class="form-control" id="recipient-name" required>
+						<input type="text" name="banyak"  class="form-control" id="recipient-name" required>
 					</div>
 					<div class="form-group">
 						<label for="r-name" class="form-control-label">Harga Satuan</label>
-						<input type="text" name="harga_satuan" value="<?php echo $harga_satuan ?>"  class="form-control" id="recipient-name" required>
+						<input type="text" name="harga_satuan"  class="form-control" id="recipient-name" required>
 					</div>
 					<div class="form-group">
-						<label for="r-name" class="form-control-label">NO. NOTA</label>
-						<input type="text" name="no_nota" value="<?php echo $no_nota ?>" class="form-control" id="recipient-name" required>
+						<label for="r-name" class="form-control-label">No. Nota</label>
+						<input type="text" name="no_nota"  class="form-control" id="recipient-name" required>
 					</div>
-				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
 					<button type="submit" class="btn btn-primary">Simpan</button>

@@ -126,9 +126,9 @@ if (isset($this->session->userdata['logged_in'])) {
 					<?php if($level == 'admin'): ?>
 						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
 					<?php endif; ?>
-					<?php if($level == 'admin'): ?>
+					<!-- <?php if($level == 'admin'): ?>
 						<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
-					<?php endif; ?>
+					<?php endif; ?> -->
 					<?php if($level == 'admin' || $level == 'users'): ?>
 						<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
 							<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>

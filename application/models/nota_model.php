@@ -47,14 +47,14 @@ class nota_model extends CI_Model {
 	}
 	public function upload(){  
 
-		$config['upload_path'] = './images/';   
+		$config['upload_path'] = './assets/uploads';   
 		$config['allowed_types'] = 'jpg|png|jpeg';  
 		$config['max_size']  = '2048';  
 		$config['remove_space'] = TRUE; 
 
 	     $this->load->library('upload', $config);
-	      echo "aaaaaaaaaaaaaa";
-	     exit(); // Load konfigurasi uploadnya   
+	     /* echo "aaaaaaaaaaaaaa";
+	     exit();*/ // Load konfigurasi uploadnya   
 	     if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil      // Jika berhasil :  
 
 	     	$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');   
