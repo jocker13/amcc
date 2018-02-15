@@ -12,11 +12,13 @@ class Kegiatan extends CI_Controller {
 	}
 	public function index()
 	{
+		$id_users= $this->session->userdata['logged_in']['id_users'];
+		$jabatan=$this->session->userdata['logged_in']['level'];
 		$data = array(
 			"container" => "kegiatan"
 		);
 		$data['op']='tambah';
-		$data['sql']=$this->kegiatan_model->getKegiatan()->result();
+		$data['sql']=$this->kegiatan_model->getKegiatan($id_users,$jabatan)->result();
 		$this->load->view("template", $data);	
 	}
 	public function simpan()

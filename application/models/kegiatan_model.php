@@ -4,10 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class kegiatan_model extends CI_Model {
 
 
-	public function getKegiatan()
+	public function getKegiatan($id_users,$jabatan)
 	{
+		if ($jabatan!='admin'){
+		$sql =$this->db->query("select * from kegiatan where id_users='$id_users'");
+		return $sql;
+	}else{
 		$sql =$this->db->query("select * from kegiatan");
 		return $sql;
+	}
 	}
 	public function getKegiatanByID($id_kegiatan="")
 	{
