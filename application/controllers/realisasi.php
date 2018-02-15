@@ -11,12 +11,14 @@ public function __construct(){
 
 	public function index()
 	{
+		$id_users= $this->session->userdata['logged_in']['id_users'];
+		$jabatan=$this->session->userdata['logged_in']['level'];
 		$data = array(
 			"container" => "realisasi"
 		);
 		$data['op']='tambah';
 		$data['sql']=$this->realisasi_model->getRealisasi()->result();
-		$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();
+		$data['kegiatan']=$this->kegiatan_model->getKegiatan($id_users,$jabatan)->result();
 		// $data['kegiatantahun']=$this->kegiatan_model->getKegiatanBytahun($tahun_kep);
 		$this->load->view("template", $data);
 	}

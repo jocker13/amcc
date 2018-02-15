@@ -22,6 +22,8 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link href="<?php echo base_url('assets/css/datepicker3.css')?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/styles.css')?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/js/lumino.glyphs')?>" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/datatables.css')?>">
+
 	<script src="js/lumino.glyphs.js"></script>
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -210,10 +212,12 @@ if (isset($this->session->userdata['logged_in'])) {
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
 
+		<script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/DataTables/datatables.js')?>"></script>
+
 
 
 		<script type="text/javascript">
-		$(document).ready(function() {
+			$(document).ready(function() {
         // Untuk sunting
         $('#exampleModal').on('show.bs.modal', function (event) {
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
@@ -225,8 +229,8 @@ if (isset($this->session->userdata['logged_in'])) {
             modal.find('#banyak').attr("value",div.data('banyak'));
             modal.find('#harga_satuan').attr("value",div.data('harga'));
             modal.find('#op').attr("value",div.data('op'));
-       		 });
-   		});
+        });
+    });
 
 
 
@@ -240,6 +244,10 @@ if (isset($this->session->userdata['logged_in'])) {
 			// 	console.log(data);
 			// 	$("#model-kegiatan").val(data);
 			// });
+
+			$(document).ready(function() {
+        	$('#kegiatan').DataTable();
+      		});
 		</script>
 
 		<!-- <script>

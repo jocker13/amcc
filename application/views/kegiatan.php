@@ -17,7 +17,6 @@ if ($op=='edit')
 }
 ?>
 
-
 <div class="row">
   <div class="col-lg-12">
   </br>
@@ -61,21 +60,11 @@ if ($op=='edit')
       <div class="panel panel-default">
         <div class="panel-heading">Daftar Kegiatan</div>
         <div class="panel-body">
-          <form class="navbar-form navbar-right" role="search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="nama kegiatan" name="srch-term" id="srch-term">
-              <div class="input-group-btn">
-                <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
-                </button>
-              </div>
-            </div>
-          </form>
 
-        
-          <table class="table table-bordered table-striped">
-            <thead>
+          <table id="kegiatan" class="table table-striped table-bordered" >
+          <thead>
               <tr style="background: dodgerblue;">
-                <th style="text-align: center;">TAHUN KEPENGURUSAN</th>
+                <th style="text-align: center;">TAHUN</th>
                 <th style="text-align: center;">NAMA KEGIATAN</th>
                 <th style="text-align: center;">TANGGAL</th>
                 <th style="text-align: center;">AKSI</th>
@@ -95,8 +84,8 @@ if ($op=='edit')
                   <td><?php echo $kegiatan->nama_kegiatan  ?></td>
                   <td><?php echo $newDate  ?></td>
                   <td>
-                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id_kegiatan ?>" class="btn btn-sm btn-warning ">Edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id_kegiatan ?>';}" class="btn btn-sm btn-danger">Hapus</button></a> 
+                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id_kegiatan ?>" class="btn btn-sm btn-warning "><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id_kegiatan ?>';}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i>Hapus</button></a> 
                   </td>
                 </tr>
               </tbody>
@@ -104,9 +93,10 @@ if ($op=='edit')
 
             }
             ?>
-          </table>
+        </table>
         </div>
       </div>
     </div>
   </div>
 </div>   
+
