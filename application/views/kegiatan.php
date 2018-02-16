@@ -16,11 +16,10 @@ if ($op=='edit')
   }
 }
 ?>
-
 <div class="row">
   <div class="col-lg-12">
-  </br>
-</div>
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/list.png') ?>" > \\ Kegiatan</h2>
+  </div>
 </div><!--/.row-->
 
 <div class="row">
@@ -45,7 +44,7 @@ if ($op=='edit')
             <input type="date" name="tanggal" value="<?php echo $tanggal ?>" class="form-control">
           </div>
           <div class="form-group" align="right">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
           </div>
         </form> 
 
@@ -55,15 +54,16 @@ if ($op=='edit')
   </div><!--End .articles-->
 
 
-  <div class="row">
-    <div class="col-md-7">
+<!--   <div class="row"> -->
+    <div class="col-md-8">
       <div class="panel panel-default">
-        <div class="panel-heading">Daftar Kegiatan</div>
+        <div class="panel-heading">Daftar Kegiatan </div>
         <div class="panel-body">
 
           <table id="kegiatan" class="table table-striped table-bordered" >
           <thead>
               <tr style="background: dodgerblue;">
+                <th style="text-align: center;">No</th>
                 <th style="text-align: center;">TAHUN</th>
                 <th style="text-align: center;">NAMA KEGIATAN</th>
                 <th style="text-align: center;">TANGGAL</th>
@@ -80,12 +80,13 @@ if ($op=='edit')
                   <?php 
                   $newDate = date("d-m-Y", strtotime($kegiatan->tanggal))
                   ?>
+                  <td><?php echo $no ?> </td>
                   <td><?php echo $kegiatan->tahun_kep  ?></td>
                   <td><?php echo $kegiatan->nama_kegiatan  ?></td>
                   <td><?php echo $newDate  ?></td>
                   <td>
-                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id_kegiatan ?>" class="btn btn-sm btn-warning "><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id_kegiatan ?>';}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i>Hapus</button></a> 
+                    <a href="<?php echo base_url();?>Kegiatan/edit/<?php echo $kegiatan->id_kegiatan ?>" class="btn btn-sm btn-warning "><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+                    <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>Kegiatan/hapus/<?php echo $kegiatan->id_kegiatan ?>';}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</button></a> 
                   </td>
                 </tr>
               </tbody>

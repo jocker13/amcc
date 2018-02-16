@@ -11,12 +11,11 @@ public function __construct(){
 
 	public function index()
 	{
-<<<<<<< HEAD
+
 		$kegiatan  = $this->input->post('kegiatan');
-=======
+
 		$id_users= $this->session->userdata['logged_in']['id_users'];
 		$jabatan=$this->session->userdata['logged_in']['level'];
->>>>>>> 0ccd772405260f5998ddcb234dbc70137fc09af8
 		$data = array(
 			"container" => "realisasi"
 		);
@@ -27,11 +26,11 @@ public function __construct(){
 		$id_users = $this->session->userdata()['logged_in']['id_users'];
 		$data['kegiatan']=$this->kegiatan_model->getKegiatanRealisasi($id_users)->result();
 		$data['sql']=$this->realisasi_model->getRealisasi()->result();
-<<<<<<< HEAD
+
 	/*	$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();*/
-=======
+
 		$data['kegiatan']=$this->kegiatan_model->getKegiatan($id_users,$jabatan)->result();
->>>>>>> 0ccd772405260f5998ddcb234dbc70137fc09af8
+
 		// $data['kegiatantahun']=$this->kegiatan_model->getKegiatanBytahun($tahun_kep);
 		$this->load->view("template", $data);
 	}

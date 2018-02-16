@@ -113,27 +113,27 @@ if (isset($this->session->userdata['logged_in'])) {
 				<ul class="nav menu">
 					
 					<?php if($level == 'admin'): ?>
-						<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
+						<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/community.png') ?>" >&nbsp; Pengguna</a></li>   
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
+						<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/list.png') ?>">&nbsp; Kegiatan</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
+						<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/dollar-sign-and-piles-of-coins.png') ?>">&nbsp; Estimasi</a></li>
 					<?php endif; ?>
 
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
+						<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/bar-graph-with-dollar-sign.png') ?>">&nbsp; Realisasi</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin'): ?>
-						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
+						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/dollar-symbol.png') ?>">&nbsp; Transaksi Umum</a></li>
 					<?php endif; ?>
 					<!-- <?php if($level == 'admin'): ?>
 						<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
 					<?php endif; ?> -->
 					<?php if($level == 'admin' || $level == 'users'): ?>
 						<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-							<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+							<img src="<?php echo base_url('assets/img/filee.png') ?>"> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 						</a>
 						<ul class="children collapse" id="sub-item-1">
 							<li><a class="" href="<?php echo base_url('/nota') ?>">
@@ -144,8 +144,7 @@ if (isset($this->session->userdata['logged_in'])) {
 							</a></li>
 						</ul>
 					<?php endif; ?>
-					<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-						<em class="fa fa-navicon">&nbsp;</em> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+					<li class="parent "><a data-toggle="collapse" href="#sub-item-2"><img src="<?php echo base_url('assets/img/newspaper.png') ?>"> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
 					<ul class="children collapse" id="sub-item-2">
 						<li><a class="" href="<?php echo base_url('/laporan_estimasi') ?>">
@@ -159,10 +158,10 @@ if (isset($this->session->userdata['logged_in'])) {
 								<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
 							</a></li>
 						<?php endif; ?>
-						<?php if($level == 'admin' || $level == 'ketua'): ?>
+					<!-- 	<?php if($level == 'admin' || $level == 'ketua'): ?>
 							<li><a class="" href=" <?php echo base_url('/detailtransaksi') ?>">
 								<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
-							</a></li>
+							</a></li> -->
 						<?php endif; ?>
 						<?php if($level == 'admin' || $level == 'users'): ?>
 							<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
@@ -170,54 +169,28 @@ if (isset($this->session->userdata['logged_in'])) {
 							</a></li>
 						<?php endif; ?>
 					</ul>
+					<li><a href="logout"><img src="<?php echo base_url('assets/img/logout.png') ?>" > Logout</a></li>
+				</ul>
+			</div><!--/.sidebar-->
 
-				<!-- </li>
-					<li><a href="<?php echo base_url('/nota') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
-					<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li> -->
+			<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+				<?php $this->load->view($container)?>
+			</div>
+			<script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/chart.min.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/chart-data.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/easypiechart.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/easypiechart-data.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
+			<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
 
-
-			<!-- <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
-			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
-			<!-- <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em <a href="index.html"><img src="<?php echo base_url('assets/img/paperclip.png') ?>"</a>&nbsp;</em> Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Lampiran Nota
-					</a></li>
-					<!-- <li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
-					</a></li> -->
-				<!-- </ul>
-				</li>  -->
-				<li><a href="logout"><img src="<?php echo base_url('assets/img/cancel.png') ?>" >Logout</a></li>
-				<!-- <li><a href="login.html">&nbsp; Logout</a></li> -->
-			</ul>
-		</div><!--/.sidebar-->
-
-		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-			<?php $this->load->view($container)?>
-		</div>
-		<script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/chart.min.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/chart-data.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/easypiechart.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/easypiechart-data.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
-		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
-
-		<script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/DataTables/datatables.js')?>"></script>
+			<script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/DataTables/datatables.js')?>"></script>
 
 
 
-		<script type="text/javascript">
-			$(document).ready(function() {
+			<script type="text/javascript">
+				$(document).ready(function() {
         // Untuk sunting
         $('#exampleModal').on('show.bs.modal', function (event) {
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
@@ -234,11 +207,11 @@ if (isset($this->session->userdata['logged_in'])) {
 
 
 
-			$('#tambah').on('click', function() {
-				var data = $("#id_kegiatan").val();
-				console.log(data);
-				$("#model-kegiatan").val(data);
-			});
+				$('#tambah').on('click', function() {
+					var data = $("#id_kegiatan").val();
+					console.log(data);
+					$("#model-kegiatan").val(data);
+				});
 			// $('#id_kegiatan').change(function(){
 			// 	var data = $("#id_kegiatan").val();
 			// 	console.log(data);
@@ -246,8 +219,29 @@ if (isset($this->session->userdata['logged_in'])) {
 			// });
 
 			$(document).ready(function() {
-        	$('#kegiatan').DataTable();
-      		});
+				$('#kegiatan').DataTable();
+			});
+			$(document).ready(function() {
+				$('#realisasi').DataTable();
+			});
+			$(document).ready(function() {
+				$('#estimasidata').DataTable();
+			});
+			$(document).ready(function() {
+				$('#pengguna').DataTable();
+			});
+			$(document).ready(function() {
+				$('#estimasi').DataTable();
+			});
+			$(document).ready(function() {
+				$('#transaksiumum').DataTable();
+			});
+			$(document).ready(function() {
+				$('#notabaru').DataTable();
+			});
+			$(document).ready(function() {
+				$('#nota').DataTable();
+			});
 		</script>
 
 		<!-- <script>

@@ -29,7 +29,7 @@ foreach ($nama_kegiatan as $value) {
 
 <div class="row">
 	<div class="col-lg-12">
-		<h2 class="page-header" align="center">ESTIMASI</h2>
+		<h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/dollar-sign-and-piles-of-coins.png') ?>" > \\ Estimasi</h2>
 	</div>
 </div><!--/.row-->
 
@@ -54,7 +54,7 @@ foreach ($nama_kegiatan as $value) {
 							<!-- <div class="col-md-4"> -->
 
 								<div class="form-group">
-									<label>NAMA KEGIATAN</label>
+									<label>Nama Kegiatan</label>
 
 									<select class="form-control" id="id_kegiatan" name="kegiatan" >
 										<option value="" >-- pilih kegiatan --</option>
@@ -75,7 +75,7 @@ foreach ($nama_kegiatan as $value) {
 								<div class="form-group">
 
 									<br>
-									<button  onclick="show()" class="btn btn-primary">Tampilkan</button>
+									<button  onclick="show()" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Tampilkan</button>
 								</div>  
 							</div>
 						</form>
@@ -88,32 +88,24 @@ foreach ($nama_kegiatan as $value) {
 	<div class="row" id="estimasi_tabel" ">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
-				<form class="navbar-form navbar-right" role="search">
-					<div class="input-group">
-						<input class="form-control  type="text" placeholder="nama transaksi" name="srch-term" id="srch-term">
-						<div class="input-group-btn">
-							<button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
-							</button>
-						</div>
-					</div>
-				</form>
-				<div class="panel-heading" align="right">
-					<button class="btn btn-primary"  id="tambah" data-toggle="modal" data-target="#exampleModal"> TAMBAH </button>
-				</div>
-
+				<div class="panel-heading" align="right"><button class="btn btn-success"  id="tambah" data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-plus"></i> Tambah</button>
+        <br />
+        <br /></div>
 				<div class="panel-body">
-
-					<table class="table table-bordered table-striped">
-						<th style="background: dodgerblue; text-align: center;">NO</th>
-						<th style="background: dodgerblue; text-align: center;">JENIS</th>
-						<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
-						<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
-						<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
-						<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
-						<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
-						<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
-
-
+		
+					<table id="estimasi" class="table table-striped table-bordered" >
+						<thead>
+							<tr style="background: dodgerblue;">
+								<th style="background: dodgerblue; text-align: center;">NO</th>
+								<th style="background: dodgerblue; text-align: center;">JENIS</th>
+								<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
+								<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
+								<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
+								<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
+								<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
+								<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
+							</tr>
+						</thead>
 						<?php
 						$no=0;
 						$jumlah=0;
@@ -141,16 +133,16 @@ foreach ($nama_kegiatan as $value) {
 										data-harga="<?php echo $val['harga_satuan'] ?>"  
 										data-op="edit"  
 										data-toggle="modal" data-target="#exampleModal">
-										<button id="ubah1" data-toggle="modal"  class="btn btn-sm btn-warning">Ubah</button>
+										<button id="ubah1" data-toggle="modal"  class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i> Ubah</button>
 									</a>
-									<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val['id_estimasi']?>';}" class="btn btn-sm btn-danger">Hapus</button>
+									<a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>estimasi/hapus/<?php echo $val['id_estimasi']?>';}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
 									</td>
 								</tr>
 							</tbody>
 							<?php
 						}
 						?>
-					</table>
+					</table>				
 				</div>
 			</div>
 		</div>
@@ -162,6 +154,9 @@ foreach ($nama_kegiatan as $value) {
 		function show() {
 			realisasi_div.style['display']='block';
 		}
+		$(document).ready(function() {
+			$('#estimasi').DataTable();
+		});
 
 	</script>
 
@@ -222,8 +217,8 @@ foreach ($nama_kegiatan as $value) {
 
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Keluar</button>
+							<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
 						</form>
 					</div>
 				</div>
