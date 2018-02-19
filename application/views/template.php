@@ -9,7 +9,7 @@ if (isset($this->session->userdata['logged_in'])) {
 	$email = ($this->session->userdata['logged_in']['email']);
 	$level = ($this->session->userdata['logged_in']['level']);
 } else {
-// header("location: login");
+header("location: login");
 }
 ?>
 <head>
@@ -25,13 +25,8 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/datatables.css')?>">
 
 	<script src="js/lumino.glyphs.js"></script>
-	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-<![endif]-->
-</head>
+	</head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -170,35 +165,9 @@ if (isset($this->session->userdata['logged_in'])) {
 							</a></li>
 						<?php endif; ?>
 					</ul>
-
-				<!-- </li>
-					<li><a href="<?php echo base_url('/nota') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota</a></li>
-					<li><a href="<?php echo base_url('/notabaru') ?>"><img src="<?php echo base_url('assets/img/paperclip.png') ?>">&nbsp; Nota Baru</a></li> -->
-
-
-			<!-- <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
-			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
-			<!-- <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em <a href="index.html"><img src="<?php echo base_url('assets/img/paperclip.png') ?>"</a>&nbsp;</em> Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Nota Baru
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Lampiran Nota
-					</a></li>
-					<!-- <li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
-					</a></li> -->
-				<!-- </ul>
-				</li>  -->
-				<li><a href="logout"><img src="<?php echo base_url('assets/img/cancel.png') ?>" >Logout</a></li>
-				<!-- <li><a href="login.html">&nbsp; Logout</a></li> -->
+				<li><a href="javascript:if(confirm('Apakah anda ingin logout?')){document.location='<?php echo base_url();?>login/logout';}"><img src="<?php echo base_url('assets/img/cancel.png') ?>" >Logout</a></li>
 			</ul>
-		</div><!--/.sidebar-->
+		</div>
 
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 			<?php $this->load->view($container)?>
@@ -216,10 +185,14 @@ if (isset($this->session->userdata['logged_in'])) {
 
 
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-        // Untuk sunting
-        $('#exampleModal').on('show.bs.modal', function (event) {
+<script type="text/javascript">
+
+var save_method; //for save method string
+var table;
+
+$(document).ready(function() {
+
+	$('#exampleModal').on('show.bs.modal', function (event) {
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
             var modal= $(this)
             console.log(div.data('jenis'));
@@ -230,37 +203,96 @@ if (isset($this->session->userdata['logged_in'])) {
             modal.find('#harga_satuan').attr("value",div.data('harga'));
             modal.find('#op').attr("value",div.data('op'));
         });
+});
+
+
+
+$('#tambah').on('click', function() {
+	var data = $("#id_kegiatan").val();
+	console.log(data);
+	$("#model-kegiatan").val(data);
+});
+
+// javascript untuk kegiatan
+table = $('#kegiatan').DataTable({ 
+
+		        "processing": true, //Feature control the processing indicator.
+		        "serverSide": true, //Feature control DataTables' server-side processing mode.
+		        "order": [], //Initial no order.
+
+		        // Load data for the table's content from an Ajax source
+		        "ajax": {
+		        	"url": "<?php echo site_url('kegiatan/ajax_list')?>",
+		        	"type": "POST"
+		        },
+
+		        //Set column definition initialisation properties.
+		        "columnDefs": [
+		        { 
+		            "targets": [ -1 ], //last column
+		            "orderable": false, //set not orderable
+		        },
+		        ],
+
+		    });
+function reload_table()
+{
+    table.ajax.reload(null,false); //reload datatable ajax 
+}
+function delete_kegiatan(id)
+{
+	if(confirm('Are you sure delete this data?'))
+	{
+        // ajax delete data to database
+        $.ajax({
+        	url : "<?php echo site_url('kegiatan/ajax_delete')?>/"+id,
+        	type: "POST",
+        	dataType: "JSON",
+        	success: function(data)
+        	{
+                //if success reload ajax table
+                $('#modal_form').modal('hide');
+                reload_table();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+            	alert('Error deleting data');
+            }
+        });
+
+    }
+}
+function edit_kegiatan(id)
+{
+	save_method = 'update';
+    // $('#form')[0].reset(); // reset form on modals
+    // $('.form-group').removeClass('has-error'); // clear error class
+    // $('.help-block').empty(); // clear error string
+
+    //Ajax Load data from ajax
+    $.ajax({
+    	url : "<?php echo site_url('kegiatan/ajax_edit/')?>/"+id,
+    	type: "GET",
+    	dataType: "JSON",
+    	success: function(data)
+    	{
+    		console.log(data);
+
+    		$('#id_kegiatan').val(data.id_kegiatan);
+    		$('#nama_kegiatan').val(data.nama_kegiatan);
+    		$('#tahun_kep').val(data.tahun_kep);
+    		$('#tanggal').val(data.tanggal);
+    		$('#op').val('edit');
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        	alert('Error get data from ajax');
+        }
     });
+}
+</script>
 
-
-
-			$('#tambah').on('click', function() {
-				var data = $("#id_kegiatan").val();
-				console.log(data);
-				$("#model-kegiatan").val(data);
-			});
-			// $('#id_kegiatan').change(function(){
-			// 	var data = $("#id_kegiatan").val();
-			// 	console.log(data);
-			// 	$("#model-kegiatan").val(data);
-			// });
-
-			$(document).ready(function() {
-        	$('#kegiatan').DataTable();
-      		});
-		</script>
-
-		<!-- <script>
-			window.onload = function () {
-				var chart1 = document.getElementById("line-chart").getContext("2d");
-				window.myLine = new Chart(chart1).Line(lineChartData, {
-					responsive: true,
-					scaleLineColor: "rgba(0,0,0,.2)",
-					scaleGridLineColor: "rgba(0,0,0,.05)",
-					scaleFontColor: "#c5c7cc"
-				});
-			};
-		</script> -->
 
 	</body>
 	</html>

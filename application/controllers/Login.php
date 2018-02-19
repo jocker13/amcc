@@ -1,5 +1,3 @@
-
-
 <?php
 
 // session_start(); //we need to start session in order to access it through CI
@@ -8,17 +6,9 @@ Class Login extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-
-// Load form helper library
 		$this->load->helper('form');
-
-// Load form validation library
 		$this->load->library('form_validation');
-
-// Load session library
 		$this->load->library('session');
-
-// Load database
 		$this->load->model('login_model');
 	}
 
@@ -106,16 +96,13 @@ Class Login extends CI_Controller {
 		}
 	}
 
-// Logout from admin page
 	public function logout() {
-
-// Removing session data
 		$sess_array = array(
 			'username' => ''
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
-		$data['message_display'] = 'Successfully Logout';
-		$this->load->view('login', $data);
+		// $data['message_display'] = 'Successfully Logout';
+		$this->load->view('login');
 	}
 
 }
