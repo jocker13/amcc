@@ -108,27 +108,27 @@ header("location: login");
 				<ul class="nav menu">
 					
 					<?php if($level == 'admin'): ?>
-						<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/user.png') ?>" >&nbsp; Pengguna</a></li>   
+						<li><a href="<?php echo base_url('/user') ?>"><img src="<?php echo base_url('assets/img/community.png') ?>" >&nbsp; Pengguna</a></li>   
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/pencil.png') ?>">&nbsp; Kegiatan</a></li>
+						<li><a href="<?php echo base_url('/kegiatan') ?>"><img src="<?php echo base_url('assets/img/list.png') ?>">&nbsp; Kegiatan</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Estimasi</a></li>
+						<li><a href="<?php echo base_url('/estimasi') ?>"><img src="<?php echo base_url('assets/img/dollar-sign-and-piles-of-coins.png') ?>">&nbsp; Estimasi</a></li>
 					<?php endif; ?>
 
 					<?php if($level == 'admin' || $level == 'users'): ?>
-						<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Realisasi</a></li>
+						<li><a href="<?php echo base_url('/realisasi') ?>"><img src="<?php echo base_url('assets/img/bar-graph-with-dollar-sign.png') ?>">&nbsp; Realisasi</a></li>
 					<?php endif; ?>
 					<?php if($level == 'admin'): ?>
-						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Transaksi Umum</a></li>
+						<li><a href="<?php echo base_url('/transaksiumum') ?>"><img src="<?php echo base_url('assets/img/dollar-symbol.png') ?>">&nbsp; Transaksi Umum</a></li>
 					<?php endif; ?>
-					<?php if($level == 'admin'): ?>
+					<!-- <?php if($level == 'admin'): ?>
 						<li><a href="<?php echo base_url('/detailtransaksi') ?>"><img src="<?php echo base_url('assets/img/checklist.png') ?>">&nbsp; Detail Transaksi</a></li>
-					<?php endif; ?>
+					<?php endif; ?> -->
 					<?php if($level == 'admin' || $level == 'users'): ?>
 						<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-							<em class="fa fa-navicon">&nbsp;</em> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+							<img src="<?php echo base_url('assets/img/filee.png') ?>"> Lampiran Nota <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 						</a>
 						<ul class="children collapse" id="sub-item-1">
 							<li><a class="" href="<?php echo base_url('/nota') ?>">
@@ -139,8 +139,7 @@ header("location: login");
 							</a></li>
 						</ul>
 					<?php endif; ?>
-					<li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-						<em class="fa fa-navicon">&nbsp;</em> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+					<li class="parent "><a data-toggle="collapse" href="#sub-item-2"><img src="<?php echo base_url('assets/img/newspaper.png') ?>"> Laporan<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 					</a>
 					<ul class="children collapse" id="sub-item-2">
 						<li><a class="" href="<?php echo base_url('/laporan_estimasi') ?>">
@@ -154,10 +153,10 @@ header("location: login");
 								<span class="fa fa-arrow-right">&nbsp;</span> Transaksi Umum
 							</a></li>
 						<?php endif; ?>
-						<?php if($level == 'admin' || $level == 'ketua'): ?>
+					<!-- 	<?php if($level == 'admin' || $level == 'ketua'): ?>
 							<li><a class="" href=" <?php echo base_url('/detailtransaksi') ?>">
 								<span class="fa fa-arrow-right">&nbsp;</span> Detail Transaksi
-							</a></li>
+							</a></li> -->
 						<?php endif; ?>
 						<?php if($level == 'admin' || $level == 'users'): ?>
 							<li><a class="" href=" <?php echo base_url('/notabaru') ?>">
@@ -181,10 +180,6 @@ header("location: login");
 		<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js')?>"></script>
 		<script src="<?php echo base_url('assets/js/custom.js')?>"></script>
 
-		<script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/DataTables/datatables.js')?>"></script>
-
-
-
 <script type="text/javascript">
 
 var save_method; //for save method string
@@ -192,7 +187,8 @@ var table;
 
 $(document).ready(function() {
 
-	$('#exampleModal').on('show.bs.modal', function (event) {
+        // Untuk sunting
+        $('#exampleModal').on('show.bs.modal', function (event) {
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
             var modal= $(this)
             console.log(div.data('jenis'));
@@ -292,6 +288,42 @@ function edit_kegiatan(id)
     });
 }
 </script>
+				$('#tambah').on('click', function() {
+					var data = $("#id_kegiatan").val();
+					console.log(data);
+					$("#model-kegiatan").val(data);
+				});
+			// $('#id_kegiatan').change(function(){
+			// 	var data = $("#id_kegiatan").val();
+			// 	console.log(data);
+			// 	$("#model-kegiatan").val(data);
+			// });
+
+			$(document).ready(function() {
+				$('#kegiatan').DataTable();
+			});
+			$(document).ready(function() {
+				$('#realisasi').DataTable();
+			});
+			$(document).ready(function() {
+				$('#estimasidata').DataTable();
+			});
+			$(document).ready(function() {
+				$('#pengguna').DataTable();
+			});
+			$(document).ready(function() {
+				$('#estimasi').DataTable();
+			});
+			$(document).ready(function() {
+				$('#transaksiumum').DataTable();
+			});
+			$(document).ready(function() {
+				$('#notabaru').DataTable();
+			});
+			$(document).ready(function() {
+				$('#nota').DataTable();
+			});
+		</script>
 
 
 	</body>

@@ -11,20 +11,33 @@ public function __construct(){
 
 	public function index()
 	{
+
+		$kegiatan  = $this->input->post('kegiatan');
+
 		$id_users= $this->session->userdata['logged_in']['id_users'];
 		$jabatan=$this->session->userdata['logged_in']['level'];
 		$data = array(
 			"container" => "realisasi"
 		);
 		$data['op']='tambah';
+		$data['kegiatan_id']=$kegiatan; 
+		$data['nama_kegiatan']=$this->kegiatan_model->getKegiatanByID($kegiatan)->result();
+		$data['sql']=$this->realisasi_model->getRealisasiKegiatan($kegiatan);
+		$id_users = $this->session->userdata()['logged_in']['id_users'];
+		$data['kegiatan']=$this->kegiatan_model->getKegiatanRealisasi($id_users)->result();
 		$data['sql']=$this->realisasi_model->getRealisasi()->result();
+
+	/*	$data['kegiatan']=$this->kegiatan_model->getKegiatan()->result();*/
+
 		$data['kegiatan']=$this->kegiatan_model->getKegiatan($id_users,$jabatan)->result();
+
 		// $data['kegiatantahun']=$this->kegiatan_model->getKegiatanBytahun($tahun_kep);
 		$this->load->view("template", $data);
 	}
 	public function simpan()
 	{
 		$jenis=$this->input->post("jenis");
+		$id_kegiatan=$this->input->post("id_kegiatan");
 		$id_realisasi=$this->input->post("id_realisasi");
 		$op=$this->input->post("op");
 		$nama_sie=$this->input->post("nama_sie");
@@ -34,6 +47,7 @@ public function __construct(){
 		$jumlah=$this->input->post("jumlah");
 		$no_nota=$this->input->post("no_nota");
 		$data = array(
+			'id_kegiatan' => $id_kegiatan, 
 			'jenis'=> $jenis,
 			'nama_sie' => $nama_sie, 
 			'nama_realisasi' => $nama_realisasi, 

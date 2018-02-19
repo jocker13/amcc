@@ -2,20 +2,18 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<!-- 		<h2 class="page-header" align="center">REALISASI</h2> -->
-		<br>
+		<h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/bar-graph-with-dollar-sign.png') ?>" > \\ Realisasi</h2>
 	</div>
 </div><!--/.row-->
 
-
 <div class="row">
-	<div class="col-md-5">
+	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">Estimasi</div>
 			<div class="panel-body">
 				<form role="form">
 					<div class="form-group">
-						<label>NAMA KEGIATAN</label>
+						<label>Nama Kegiatan</label>
 
 						<select class="form-control" id="id_kegiatan" name="kegiatan" >
 							<option value="" >-- pilih kegiatan --</option>
@@ -64,7 +62,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+<!-- 	<div class="row"> -->
 		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">Input Data Realisasi</div>
@@ -99,12 +97,12 @@
 							<input type="text" name="no_nota" class="form-control" required> 
 						</div>
 						<div class="form-group" align="right">
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
 						</div>
 					</form>
+					        <div class="clear"></div>
+      </div><!--End .article-->
 				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
@@ -114,8 +112,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-
-				<table id="table_id" class="table table-striped table-bordered" >
+				<table id="realisasi" class="table table-striped table-bordered" >
 					<thead>
 						<tr style="background: dodgerblue; text-align: center;">
 							<th style="text-align: center;">No</th>
@@ -151,11 +148,11 @@
 <!-- javascrip untuk data table -->
 <script type="text/javascript">
 	$(document).ready(function() {
-				$('#table_id').DataTable();
-			});
-			$(document).ready(function() {
-				$('#estimasidata').DataTable();
-			});
+		$('#table_id').DataTable();
+	});
+	$(document).ready(function() {
+		$('#estimasidata').DataTable();
+	});
 </script>
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -172,13 +169,15 @@
 				<table id="estimasidata" class="table table-striped table-bordered" >
 					<thead>
 						<tr style="background: dodgerblue; text-align: center;">
-							<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
+							
+							<th style="background: dodgerblue; text-align: center;">No</th>
 							<th style="background: dodgerblue; text-align: center;">JENIS</th>
 							<th style="background: dodgerblue; text-align: center;">NAMA SIE</th>
 							<th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
 							<th style="background: dodgerblue; text-align: center;"><b>BANYAK</b></th>
 							<th style="background: dodgerblue; text-align: center;"><b>HARGA SATUAN</b></th>
 							<th style="background: dodgerblue; text-align: center;"><b>JUMLAH</b></th>
+							<th style="background: dodgerblue; text-align: center;"><b>AKSI</b></th>
 						</tr>
 					</thead>
 					<?php
@@ -219,8 +218,87 @@
 					?>
 				</table>
 			</div>
+			<script>
+				function showkegiatan(selectObject){
+					console.log(selectObject.value);
+					var tahun =selectObject.value;
+					if (tahun=='') {
+						$('#kegiatan').prop('disabled',true);
+					}else{
+				// alert('aaaaaaaaaaaaaaaaaaa');
+				$('#kegiatan').prop('disabled',false);
+				$.ajax({
+					url:"<?php echo base_url() ?>realisasi/getKegiatantahun",
+					type:"POST",
+					data:{'tahun_kep': tahun},
+					dataType:'json'
+					// success: function(){
+					// 		alert('aaaaaaaaa');
+					// },	
+					// error : function(){
+					// 	alert('eroor');
+					// }
+				});			
+			}
+		}
+	</script>
 
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="" >
+					<h5 class="modal-title" id="exampleModalLabel">INPUT DATA REALISASI</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label>NAMA KEGIATAN</label>
+						</div>
+						<div class="form-group">
+							<label>JENIS</label>
+							<select class="form-control" name="jenis">
+								<option>PEMASUKAN</option>
+								<option>PENGELUARAN</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Nama Sie</label>
+							<select class="form-control" name="nama_sie">
+								<option>SUMBER DANA</option>
+								<option>KONSUMSI</option>
+								<option>PDD</option>
+								<option>PERLENGKAPAN</option>
+								<option>ACARA</option>
+								<option>HUMAS</option>
+								<option>KESEKRETARIATAN</option>
+								<option>P3K</option>
+							</select>
+						</div>					
+						<div class="form-group">
+							<label for="nama_realisasi-name" class="form-control-label">Nama Transaksi</label>
+							<input type="text" name="nama_realisasi"  class="form-control" id="recipient-name" required>
+						</div>
 
+						<div class="form-group">
+							<label for="banyak-name" class="form-control-label">Banyak</label>
+							<input type="text" name="banyak"  class="form-control" id="recipient-name" required>
+						</div>
+						<div class="form-group">
+							<label for="r-name" class="form-control-label">Harga Satuan</label>
+							<input type="text" name="harga_satuan"  class="form-control" id="recipient-name" required>
+						</div>
+						<div class="form-group">
+							<label for="r-name" class="form-control-label">No. Nota</label>
+							<input type="text" name="no_nota"  class="form-control" id="recipient-name" required>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>

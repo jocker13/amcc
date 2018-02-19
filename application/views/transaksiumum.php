@@ -1,28 +1,20 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h2 class="page-header" align="center">TRANSAKSI UMUM</h2>
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/dollar-symbol.png') ?>" > \\ Transaksi Umum</h2>
   </div>
 </div><!--/.row-->
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
-      <form class="navbar-form navbar-right" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="nama transaksi" name="srch-term" id_tran="srch-term">
-          <div class="input-group-btn">
-            <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
-            </button>
-          </div>
-        </div>
-      </form>
-      <div class="panel-heading" align="right"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></div>
-
+     <div class="panel-heading" align="right"><button class="btn btn-success"  id="tambah" data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-plus"></i> Tambah</button>
+        <br />
+        <br /></div>
       <div class="panel-body">
-
-        <table class="table table-bordered table-striped">
-         <thead>
-           <tr>   
+         <table id="kegiatan" class="table table-striped table-bordered" >
+          <thead>
+              <tr style="background: dodgerblue;">
+             <th style="background: dodgerblue; text-align: center;">No</th>
              <th style="background: dodgerblue; text-align: center;">TANGGAL</th>
              <th style="background: dodgerblue; text-align: center;">NAMA TRANSAKSI</th>
              <th style="background: dodgerblue; text-align: center;">JENIS</th>
@@ -30,12 +22,11 @@
              <th style="background: dodgerblue; text-align: center;">BANYAK</th>
              <th style="background: dodgerblue; text-align: center;">HARGA SATUAN</th>
              <th style="background: dodgerblue; text-align: center;">JUMLAH</th>
-             <th style="background: dodgerblue; text-align: center;">NO. NOTA</th>
+             <th style="background: dodgerblue; text-align: center;">No. NOTA</th>
              <th style="background: dodgerblue; text-align: center;">SALDO</th>
-             <!-- <th style="background: dodgerblue; text-align: center;">AKSI</th> -->
-           </tr>
-         </thead>
-         <?php
+              </tr>
+            </thead>
+            <?php
          $no=0;
          $jml=0;
         foreach ($sql as $tran) {
@@ -47,14 +38,15 @@
               <?php 
               $newDate = date("d-m-Y", strtotime($tran->tanggal))
               ?>
+              <td align="center"><?php echo $no ?> </td>
               <td><?php echo $newDate  ?></td>
               <td><?php echo $tran->nama_transaksi  ?></td>
               <td><?php echo $tran->jenis  ?></td>
               <td><?php echo $tran->nama_sie  ?></td>
-              <td><?php echo $tran->banyak  ?></td>
-              <td><?php echo $tran->harga_satuan  ?></td>
+              <td align="center"><?php echo $tran->banyak  ?></td>
+              <td>Rp<?php echo number_format($tran->harga_satuan,2.,',',',') ?></td>
               <td>Rp <?php echo number_format($jml,2.,',',',')  ?></td>
-              <td> <?php echo $tran->no_nota  ?></td>
+              <td align="center"> <?php echo $tran->no_nota  ?></td>
               <td>Rp <?php echo number_format($tran->saldo,2,',',',')  ?></td>
              </tr>
            </tbody>
@@ -62,7 +54,7 @@
 
          }
          ?>
-       </table>
+        </table>
      </div>
    </div>
  </div>
@@ -83,7 +75,7 @@
 
           <div class="form-group">
             <label>Tanggal</label>
-            <input type="date" name="tanggal" class="form-control" required>
+            <input type="date" name="tanggal" class="form-control" placeholder="" required>
           </div>
 
           <div class="form-group">

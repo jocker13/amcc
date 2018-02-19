@@ -26,16 +26,20 @@ if ($op=='edit')
 }
 ?>
 
+<div class="row">
+  <div class="col-lg-12">
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/filee.png') ?>" > \\ Nota Baru</h2>
+  </div>
+</div><!--/.row-->
 
 <div class="row">
   <div class="col-lg-12">
-    <h2 class="page-header" align="center">NOTA BARU</h2>
   </div>
 </div><!--/.row-->
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-      <div class="panel-heading">INPUT DATA NOTA BARU</div>
+      <div class="panel-heading">Input Data Nota Baru</div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-6">
@@ -80,7 +84,7 @@ if ($op=='edit')
               </div>
               <br>
               <div align="right" class="form-group">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
               </div>
             </form>
           </div>
@@ -91,26 +95,26 @@ if ($op=='edit')
     <div class="row">
       <div class="col-lg-12">
         <div class="panel panel-default">
-          <div class="panel-heading">DAFTAR NOTA BARU</div>
+          <div class="panel-heading">Daftar Nota Baru</div>
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <table class="table table-bordered table-striped">
-                 <thead>
-                  <tr style="background: dodgerblue; text-align: center; ">
+                <table id="notabaru" class="table table-striped table-bordered" >
+                <thead>
+                  <tr>
+                   <th style="background: dodgerblue; text-align: center">No</th>
                    <th style="background: dodgerblue; text-align: center">NO.NOTA</th>
                    <th style="background: dodgerblue; text-align: center">TANGGAL</th>
-                   <th style="background: dodgerblue; text-align: center">DITERIMA DARI</th>
+                   <th style="background: dodgerblue; text-align: center">DARI</th>
                    <th style="background: dodgerblue; text-align: center">UANG SEBESAR</th>
                    <th style="background: dodgerblue; text-align: center">TERBILANG</th>
                    <th style="background: dodgerblue; text-align: center">PENERIMA</th>
                    <th style="background: dodgerblue; text-align: center">No. Telp</th>
                    <th style="background: dodgerblue; text-align: center">KETERANGAN</th>
                    <th style="background: dodgerblue; text-align: center">AKSI</th>
-                 </tr>
-                 
-               </thead>  
-               <?php
+                  </tr>
+                </thead>
+                 <?php
                $no=0;
                foreach ($sql as $notabaru) {
                 $no++;
@@ -120,7 +124,8 @@ if ($op=='edit')
                    <?php 
                    $newDate = date("d-m-Y", strtotime($notabaru->tanggal))
                    ?>
-                   <td><?php echo $notabaru->no_nota  ?></td>
+                   <td align="center"><?php echo $no ?> </td>
+                   <td align="center"><?php echo $notabaru->no_nota  ?></td>
                    <td><?php echo  $newDate  ?></td>
                    <td><?php echo $notabaru->dari ?></td>
                    <td>Rp <?php echo number_format($notabaru->uang,2,',','.')  ?></td>
@@ -136,6 +141,6 @@ if ($op=='edit')
 
                 }
                 ?>
-              </table>
+                  </table>
             </div>
           </div>

@@ -21,17 +21,21 @@ if ($op=='edit')
   }
 }
 ?>
-
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"></h1>
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/community.png') ?>" > \\ Pengguna</h2>
   </div>
 </div><!--/.row-->
 
+<!-- <div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header"></h1>
+  </div>
+</div><!--/.row--> 
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-      <div class="panel-heading">INPUT DATA PENGGUNA</div>
+      <div class="panel-heading">Input Data Pengguna</div>
       <div class="panel-body">
        <div class="row">
          <div class="col-md-6">
@@ -50,7 +54,7 @@ if ($op=='edit')
             <div class="form-group">
               <label>Jabatan</label>
               <select class="form-control" name="jabatan"  selected="<?php echo $jabatan ?>" >
-                <option value="">Pilih Jabatan</option>
+                <option value="">-- pilih jabatan --</option>
                 <option value="admin">Admin</option>
                 <option value="ketua">Ketua</option>
                 <option value="users">Users</option>
@@ -71,7 +75,7 @@ if ($op=='edit')
               <input type="text" name="notelp"  value="<?php echo $notelp ?>" class="form-control">
             </div>
             <div class="form-group" align="right">
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
             </div>
           </form>
         </div><!--End .article-->
@@ -82,25 +86,14 @@ if ($op=='edit')
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-default">
-        <div class="panel-heading">DAFTAR NOTA BARU</div>
+        <div class="panel-heading">Daftar Pengguna</div>
         <div class="panel-body">
-          <form class="navbar-form navbar-right" role="search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="nama pengguna" name="srch-term" id="srch-term">
-              <div class="input-group-btn">
-                <button class="btn btn-warning type=" submit="" "=""><i class="glyphicon glyphicon-search "></i>
-                </button>
-              </div>
-            </div>
-          </form>
           <div class="row">
-
             <div class="col-lg-12">
-
-
-              <table class="table table-bordered table-striped">
+              <table id="pengguna" class="table table-striped table-bordered" >
                 <thead>
                   <tr>
+                    <th style="background: dodgerblue; text-align: center;">No</th>
                     <th style="background: dodgerblue; text-align: center;">NIM</th>
                     <th style="background: dodgerblue; text-align: center;">NAMA</th>
                     <th style="background: dodgerblue; text-align: center;">JABATAN</th>
@@ -118,6 +111,7 @@ if ($op=='edit')
                   ?>
                   <tbody>
                     <tr>
+                      <td><?php echo $no ?> </td>
                       <td><?php echo $user->nim  ?> </td>
                       <td><?php echo $user->nama ?> </td>
                       <td><?php echo $user->jabatan ?> </td>
@@ -125,8 +119,8 @@ if ($op=='edit')
                       <td><?php echo $user->notelp ?> </td>
                       
                       <td>
-                        <a href="<?php echo base_url();?>User/edit/<?php echo $user->id_users ?>" class="btn btn-sm btn-warning ">Edit</a>
-                        <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id_users ?>';}" class="btn btn-sm btn-danger">Hapus</button> </td>
+                        <a href="<?php echo base_url();?>User/edit/<?php echo $user->id_users ?>" class="btn btn-sm btn-warning "><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+                        <a href="javascript:if(confirm('Apakah anda ingin menghapus?')){document.location='<?php echo base_url();?>User/hapus/<?php echo $user->id_users ?>';}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</button> </td>
                         </tr>
                       </tbody>
                       <?php

@@ -1,7 +1,8 @@
+
 <div class="row">
   <div class="col-lg-12">
-  </br>
-</div>
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/list.png') ?>" > \\ Kegiatan</h2>
+  </div>
 </div><!--/.row-->
 
 <div class="row">
@@ -26,7 +27,7 @@
             <input type="date" name="tanggal" id="tanggal" value="" class="form-control">
           </div>
           <div class="form-group" align="right">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
           </div>
         </form> 
 
@@ -34,21 +35,25 @@
       </div><!--End .article-->
     </div>
   </div><!--End .articles-->
+
   <div class="row">
     <div class="col-md-7">
+
       <div class="panel panel-default">
-        <div class="panel-heading">Daftar Kegiatan</div>
+        <div class="panel-heading">Daftar Kegiatan </div>
         <div class="panel-body">
 
           <table id="kegiatan" class="table table-striped table-bordered" >
             <thead>
               <tr style="background: dodgerblue;">
+                <th style="text-align: center;">No</th>
                 <th style="text-align: center;">TAHUN</th>
                 <th style="text-align: center;">NAMA KEGIATAN</th>
                 <th style="text-align: center;">TANGGAL</th>
                 <th style="text-align: center;">AKSI</th>
               </tr>
             </thead>
+
           </table>
         </div>
       </div>

@@ -16,17 +16,20 @@ if ($op=='edit')
     }
  ?>
 
-
 <div class="row">
+  <div class="col-lg-12">
+    <h2 class="page-header" align="left"><img src="<?php echo base_url('assets/img/filee.png') ?>" > \\ Nota Kegiatan</h2>
+  </div>
+</div><!--/.row-->
+<!-- <div class="row">
       <div class="col-lg-12">
       </br>
       </div>
 </div><!--/.row-->
-
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
-          <div class="panel-heading">INPUT DATA NOTA</div>
+          <div class="panel-heading">Input Data Nota Kegiatan</div>
           <div class="panel-body">
                 <form role="form"  action="<?php echo base_url(); ?>nota/simpan" method="POST">
                     <div class="form-group">
@@ -69,7 +72,7 @@ if ($op=='edit')
                       
                     </br>
                    <div class="form-group" align="right">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Simpan</button>
                    </div>
                 </form> 
 
@@ -78,23 +81,22 @@ if ($op=='edit')
     </div>
   </div><!--End .articles-->
 
-
-<div class="row">
-  <div class="col-md-7">
+  <div class="col-md-8">
     <div class="panel panel-default">
-        <div class="panel-heading">Daftar Nota</div>
+        <div class="panel-heading">Daftar Nota Kegiatan</div>
             <div class="panel-body">
-                  <table class="table table-bordered table-striped">
-                    <thead>
-                      <tr style="background: dodgerblue;">
+              <table id="nota" class="table table-striped table-bordered" >
+                <thead>
+                  <tr style="text-align: center; background: dodgerblue; ">
+                    <th>No</th>
                         <th style="text-align: center;">No. Nota</th>
                         <th style="text-align: center;">NAMA KEGIATAN</th>
                         <th style="text-align: center;">TAHUN</th>
                         <th style="text-align: center;">FILE</th>
                         <th style="text-align: center;">AKSI</th>
-                      </tr>
-                    </thead>
-                    <?php
+                  </tr>
+                </thead>
+                 <?php
                         $no=0;
                         foreach ($sql as $nota) {
                           $no++;
